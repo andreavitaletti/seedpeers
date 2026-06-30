@@ -21,7 +21,7 @@ const siteConfigRaw = {
   /** ---- Navigation ---- */
   nav: {
     links: [] as { label: string; href: string }[],
-    cta: { label: "Get in touch", href: "#contact" },
+    cta: { label: "You matter", href: "#contact" },
   },
 
   /** ---- SEO & language (@astrojs/sitemap uses seo.siteUrl) ---- */
@@ -62,6 +62,7 @@ const siteConfigRaw = {
         email: "entry.168365386",
         diy: "entry.1208833990",
         pay: "entry.2118968422",
+        location: "entry.1622443027",
         message: "entry.446965754",
       },
     },
@@ -136,35 +137,37 @@ const siteConfigRaw = {
         number: 1,
         title: "Get your micro-greenhouse",
         description:
-          "Either buy or build your own micro-greenhouse following our intructions",
+          "Either buy or build your own micro-greenhouse. It is an open source/hardware project",
       },
       {
         number: 2,
         title: "Join the network",
-        description: "Regiser your micro-greenhouse on the network.",
+        description:
+          "Register your micro-greenhouse and become part of a growing community of cultivators.",
       },
       {
         number: 3,
         title: "Get the seeds",
-        description: "Get your seeds and plant them in your micro-greenhouse.",
+        description:
+          "Receive your seeds, plant them in your micro-greenhouse, and start your growing journey. Seeds are distributed to increase diversity and resilience.",
       },
       {
         number: 4,
-        title: "Cultivate the seeds",
+        title: "Grow and Learn",
         description:
-          "Learn how to properly cultivate the seeds and share your experience with the community.",
+          "Cultivate your plants, discover best practices, and learn from the community.",
       },
       {
         number: 5,
         title: "Share the knowledge",
         description:
-          "Tap into the community’s expertise, and give back by sharing what you know",
+          "Benefit from the collective expertise of the network and contribute your own insights to help others grow.",
       },
       {
         number: 6,
         title: "Share the harvest",
         description:
-          "Share the harvest with other members of the network contributing to the diversity of the network.",
+          "Share the harvest with other members of the network, enriching the biodiversity and resilience of the network.",
       },
     ],
   },
@@ -491,11 +494,12 @@ const siteConfigRaw = {
   /** ---- Contact Section ---- */
   contact: {
     badge: undefined as string | undefined,
-    title: "Get in touch",
+    title: "Your voice matters",
     description:
-      "We are working hard to make GreePeers a reality. Things are progressing well, but we need more time and, more importantly, we need you. Your voice matters in building our community. \n\n Leave your contact details in the form on the right and, if you wish, share your initial feedback with us.",
+      "We’re building SeedPeers. Progress is going well, but we’re still early and your input can make a real difference. \n\n Completing this form is entirely optional, but your input helps us understand your needs, prioritize features, and build a platform that truly serves the community. The only required field is your email address so we can stay in touch.\n\n Join us, stay updated, and help shape what comes next.",
     diyLabel: "Build or buy?",
     payLabel: "Would you support us? (€/month)",
+    locationLabel: "Location",
     channels: [
       {
         icon: "mail",

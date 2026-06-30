@@ -3,6 +3,8 @@ import '../styles/globals.css'
 import { siteConfig } from '../config/site.config'
 import Icon from './Icon.astro'
 import ThemeSwitch from './ThemeSwitch.astro'
+import { Image } from 'astro:assets'
+import logoImage from '../images/logo.png'
 
 const { brand, nav } = siteConfig
 ---
@@ -10,6 +12,7 @@ const { brand, nav } = siteConfig
 <header class="ac-header" data-header>
   <div class="container ac-header__inner">
     <a href="/" class="ac-header__logo">
+      <!-- <Image src={logoImage} alt={brand.name} width={32} height={32} class="ac-header__logo-img" /> -->
       <span class="gradient-text">{brand.name}</span>
     </a>
 
@@ -80,10 +83,17 @@ const { brand, nav } = siteConfig
   }
 
   .ac-header__logo {
+    display: flex;
+    align-items: center;
+    gap: var(--ac-spacing-3);
     font-size: var(--ac-text-xl);
     font-weight: var(--ac-font-extrabold);
     text-decoration: none;
     letter-spacing: -0.02em;
+  }
+
+  .ac-header__logo-img {
+    object-fit: contain;
   }
 
   .ac-header__nav {

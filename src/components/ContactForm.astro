@@ -7,6 +7,7 @@ import Input from './Input.astro'
 import Textarea from './Textarea.astro'
 import Select from './Select.astro'
 import Button from './Button.astro'
+import { countries } from '../utils/countries'
 
 const { contact, forms } = siteConfig
 const rawContactAction = forms?.contactAction?.trim() ?? ''
@@ -43,14 +44,11 @@ const contactDemoOnly = !rawContactAction && !contactNetlify && !hasGoogleForm
         data-google-field-email={forms?.googleForm?.fields?.email}
         data-google-field-diy={forms?.googleForm?.fields?.diy}
         data-google-field-pay={forms?.googleForm?.fields?.pay}
+        data-google-field-location={forms?.googleForm?.fields?.location}
         data-google-field-message={forms?.googleForm?.fields?.message}
       >
-        <div class="ac-contact__row">
-          <Input label="First name" placeholder="Jane" name="firstName" required />
-          <Input label="Last name" placeholder="Doe" name="lastName" required />
-        </div>
 
-        <Input
+         <Input
           label="Email"
           type="email"
           placeholder="jane@company.com"
@@ -58,7 +56,17 @@ const contactDemoOnly = !rawContactAction && !contactNetlify && !hasGoogleForm
           required
         />
 
-        Your initial feedback (Optional)
+        <div class="ac-contact__row">
+          <Input label="First name" placeholder="Jane" name="firstName" />
+          <Input label="Last name" placeholder="Doe" name="lastName" />
+        </div>
+
+        <Select
+          label={contact.locationLabel || "Location"}
+          name="location"
+          placeholder="Select country..."
+          options={countries}
+        />
 
         <div class="ac-contact__row">
           <Select
@@ -69,7 +77,6 @@ const contactDemoOnly = !rawContactAction && !contactNetlify && !hasGoogleForm
               { label: 'DIY (Build it)', value: 'DIY' },
               { label: 'BUY (Pre-built)', value: 'BUY' }
             ]}
-            required
           />
           <Select
             label={contact.payLabel || "Willing to pay? (€/month)"}
@@ -82,13 +89,12 @@ const contactDemoOnly = !rawContactAction && !contactNetlify && !hasGoogleForm
               { label: '10 €', value: '10' },
               { label: 'More', value: 'more' }
             ]}
-            required
           />
         </div>
 
         <Textarea
           label="Message"
-          placeholder="Tell us how we can help…"
+          placeholder="Share your feedback, suggestions, or thoughts with us!"
           name="message"
           rows={5}
         />
@@ -187,6 +193,7 @@ const contactDemoOnly = !rawContactAction && !contactNetlify && !hasGoogleForm
         email: form.getAttribute('data-google-field-email'),
         diy: form.getAttribute('data-google-field-diy'),
         pay: form.getAttribute('data-google-field-pay'),
+        location: form.getAttribute('data-google-field-location'),
         message: form.getAttribute('data-google-field-message'),
       }
 
@@ -195,6 +202,7 @@ const contactDemoOnly = !rawContactAction && !contactNetlify && !hasGoogleForm
       if (fields.email) googleData.append(fields.email, (formData.get('email') as string) ?? '')
       if (fields.diy) googleData.append(fields.diy, (formData.get('diy') as string) ?? '')
       if (fields.pay) googleData.append(fields.pay, (formData.get('pay') as string) ?? '')
+      if (fields.location) googleData.append(fields.location, (formData.get('location') as string) ?? '')
       if (fields.message) googleData.append(fields.message, (formData.get('message') as string) ?? '')
 
       try {

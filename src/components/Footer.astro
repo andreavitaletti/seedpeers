@@ -2,6 +2,8 @@
 import '../styles/globals.css'
 import { siteConfig } from '../config/site.config'
 import Icon from './Icon.astro'
+import { Image } from 'astro:assets'
+import logoImage from '../images/logo.png'
 
 const { brand, footer } = siteConfig
 const year = new Date().getFullYear()
@@ -13,6 +15,7 @@ const year = new Date().getFullYear()
       <!-- Brand column -->
       <div class="ac-footer__brand">
         <a href="/" class="ac-footer__logo">
+          <!-- <Image src={logoImage} alt={brand.name} width={32} height={32} class="ac-footer__logo-img" /> -->
           <span class="gradient-text">{brand.name}</span>
         </a>
         <div class="ac-footer__brand-lower">
@@ -83,10 +86,16 @@ const year = new Date().getFullYear()
   }
 
   .ac-footer__logo {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    gap: var(--ac-spacing-3);
     font-size: var(--ac-text-xl);
     font-weight: var(--ac-font-extrabold);
     text-decoration: none;
+  }
+
+  .ac-footer__logo-img {
+    object-fit: contain;
   }
 
   .ac-footer__description {
