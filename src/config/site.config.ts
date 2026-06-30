@@ -78,10 +78,10 @@ const siteConfigRaw = {
 
   /** ---- Hero Section ---- */
   hero: {
-    // badge: "New: v2.0 is here",
+    badge: "Together we cultivate the future.",
     title: "A collaborative effort\nto preserve seeds",
     description:
-      "Seeds are at the heart of agriculture and food security, but climate change, monocultures, and habitat loss are rapidly eroding their diversity. SeedPeers is a peer-to-peer network of micro-greenhouses that preserves and cultivates a wide range of seeds, helping protect biodiversity, strengthen the resilience of future food systems, and safeguard the cultivation knowledge and traditions that have sustained communities for generations.",
+      "Seeds are at the heart of agriculture and food security, but climate change, monocultures, and habitat loss are rapidly eroding their diversity. <b>SeedPeers is a peer-to-peer network of micro-greenhouses</b> that preserves and cultivates a wide range of seeds, helping protect biodiversity, strengthen the resilience of future food systems, and safeguard the cultivation knowledge and traditions that have sustained communities for generations.\n <b>Together we cultivate the future.</b>",
     primaryCta: { label: "The Greenhouse", href: "#greenhouse" },
     secondaryCta: { label: "How it works", href: "#howitworks" },
     /*
@@ -836,7 +836,7 @@ const siteConfigRaw = {
 
   /** ---- Footer ---- */
   footer: {
-    description: "A collaborative effort to preserve seeds",
+    description: "Together we cultivate the future.",
 
     columns: [] as {
       title: string;

@@ -6,6 +6,11 @@ import Icon from './Icon.astro'
 
 const hero = siteConfig.hero as any
 const titleLines = (hero.title || '').split('\n')
+
+function formatDescription(text: string) {
+  if (!text) return '';
+  return text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+}
 ---
 
 <section class="ac-hero">
@@ -35,9 +40,7 @@ const titleLines = (hero.title || '').split('\n')
           ))}
         </h1>
 
-        <p class="ac-hero__description animate-fade-in-up delay-200">
-          {hero.description}
-        </p>
+        <p class="ac-hero__description animate-fade-in-up delay-200" set:html={formatDescription(hero.description)} />
       </div>
 
      
@@ -166,6 +169,7 @@ const titleLines = (hero.title || '').split('\n')
     color: var(--ac-text-muted);
     line-height: var(--ac-leading-relaxed);
     max-width: 35rem;
+    white-space: pre-line;
   }
 
   .ac-hero__ctas {
