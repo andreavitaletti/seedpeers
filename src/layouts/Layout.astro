@@ -2,7 +2,7 @@
 import '../styles/globals.css'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
-import { siteConfig } from '../config/site.config'
+import { getLangConfig } from '../utils/i18n'
 import { THEME_STORAGE_KEY } from '../utils/theme-storage'
 
 interface Props {
@@ -11,6 +11,8 @@ interface Props {
   /** Absolute or site-relative image for og:image (optional; defaults to seo.defaultOgImage) */
   ogImage?: string
 }
+
+const siteConfig = getLangConfig(Astro.currentLocale)
 
 const {
   title = `${siteConfig.brand.name} — ${siteConfig.brand.tagline}`,
@@ -106,7 +108,9 @@ const jsonLd = {
   </head>
 
   <body>
-    <a class="ac-skip-link" href="#main-content">Skip to main content</a>
+    <a class="ac-skip-link" href="#main-content">
+      {Astro.currentLocale === 'it' ? 'Vai al contenuto principale' : 'Skip to main content'}
+    </a>
     <Header />
     <main id="main-content">
       <slot />

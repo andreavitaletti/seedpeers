@@ -1,38 +1,55 @@
 ---
 import '../styles/globals.css'
-import { siteConfig } from '../config/site.config'
+import { getLangConfig } from '../utils/i18n'
+import LanguageSwitch from './LanguageSwitch.astro'
 import Icon from './Icon.astro'
 import ThemeSwitch from './ThemeSwitch.astro'
 import { Image } from 'astro:assets'
 import logoImage from '../images/logo.png'
 
+const siteConfig = getLangConfig(Astro.currentLocale)
 const { brand, nav } = siteConfig
+
+const homeUrl = Astro.currentLocale === 'en' ? '/en' : '/it'
+const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/it' || Astro.url.pathname === '/it/' || Astro.url.pathname === '/en' || Astro.url.pathname === '/en/';
+
+function localizeUrl(url: string) {
+  if (url.startsWith('#')) {
+    if (isHome) return url;
+    const prefix = Astro.currentLocale === 'en' ? '/en' : '/it';
+    return `${prefix}${url}`;
+  }
+  return url;
+}
+
+const toggleMenuLabel = Astro.currentLocale === 'it' ? 'Attiva/disattiva menu' : 'Toggle menu'
 ---
 
 <header class="ac-header" data-header>
   <div class="container ac-header__inner">
-    <a href="/" class="ac-header__logo">
+    <a href={homeUrl} class="ac-header__logo">
       <!-- <Image src={logoImage} alt={brand.name} width={32} height={32} class="ac-header__logo-img" /> -->
       <span class="gradient-text">{brand.name}</span>
     </a>
 
     <nav class="ac-header__nav" data-nav>
       {nav.links.map((link) => (
-        <a href={link.href} class="ac-header__link">
+        <a href={localizeUrl(link.href)} class="ac-header__link">
           {link.label}
         </a>
       ))}
     </nav>
 
     <div class="ac-header__actions">
+      <LanguageSwitch />
       <div class="ac-header__theme">
         <ThemeSwitch />
       </div>
-      <a href={nav.cta.href} class="ac-header__cta">
+      <a href={localizeUrl(nav.cta.href)} class="ac-header__cta">
         {nav.cta.label}
       </a>
 
-      <button class="ac-header__toggle" data-nav-toggle aria-label="Toggle menu">
+      <button class="ac-header__toggle" data-nav-toggle aria-label={toggleMenuLabel}>
         <Icon name="menu" size={24} />
       </button>
     </div>
@@ -43,15 +60,16 @@ const { brand, nav } = siteConfig
     <nav class="ac-header__mobile-nav">
       <div class="ac-header__mobile-links">
         {nav.links.map((link) => (
-          <a href={link.href} class="ac-header__mobile-link">
+          <a href={localizeUrl(link.href)} class="ac-header__mobile-link">
             {link.label}
           </a>
         ))}
       </div>
       <div class="ac-header__mobile-theme">
+        <LanguageSwitch />
         <ThemeSwitch />
       </div>
-      <a href={nav.cta.href} class="ac-header__mobile-cta">
+      <a href={localizeUrl(nav.cta.href)} class="ac-header__mobile-cta">
         {nav.cta.label}
       </a>
     </nav>
@@ -127,6 +145,8 @@ const { brand, nav } = siteConfig
   .ac-header__mobile-theme {
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: var(--ac-spacing-4);
     padding-block: var(--ac-spacing-2);
   }
 

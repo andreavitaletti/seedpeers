@@ -55,6 +55,98 @@ export const siteConfigSchema = z.looseObject({
       image: z.any(),
     })
     .optional(),
+  locales: z
+    .object({
+      en: z
+        .object({
+          brand: z
+            .object({
+              tagline: z.string(),
+            })
+            .optional(),
+          nav: z
+            .object({
+              links: z.array(
+                z.object({
+                  label: z.string(),
+                  href: z.string(),
+                }),
+              ),
+              cta: z.object({
+                label: z.string(),
+                href: z.string(),
+              }),
+            })
+            .optional(),
+          seo: z
+            .object({
+              lang: z.string().min(2),
+            })
+            .optional(),
+          greenhouse: z
+            .object({
+              badge: z.string().optional(),
+              title: z.string(),
+              description: z.string(),
+            })
+            .optional(),
+          hero: z
+            .object({
+              badge: z.string().optional(),
+              title: z.string(),
+              description: z.string(),
+              primaryCta: z.object({ label: z.string(), href: z.string() }).optional(),
+              secondaryCta: z.object({ label: z.string(), href: z.string() }).optional(),
+            })
+            .optional(),
+          howItWorks: z
+            .object({
+              badge: z.string().optional(),
+              title: z.string(),
+              description: z.string(),
+              steps: z.array(
+                z.object({
+                  number: z.number(),
+                  title: z.string(),
+                  description: z.string(),
+                }),
+              ),
+            })
+            .optional(),
+          contact: z
+            .object({
+              badge: z.string().optional(),
+              title: z.string(),
+              description: z.string(),
+              diyLabel: z.string().optional(),
+              payLabel: z.string().optional(),
+              locationLabel: z.string().optional(),
+              channels: z.array(
+                z.object({
+                  icon: z.string(),
+                  label: z.string(),
+                  href: z.string(),
+                  value: z.string(),
+                }),
+              ),
+              topics: z.array(
+                z.object({
+                  label: z.string(),
+                  value: z.string(),
+                }),
+              ),
+              cta: z.string(),
+            })
+            .optional(),
+          footer: z
+            .object({
+              description: z.string(),
+            })
+            .optional(),
+        })
+        .optional(),
+    })
+    .optional(),
 })
 
 export type SiteConfigInput = z.input<typeof siteConfigSchema>

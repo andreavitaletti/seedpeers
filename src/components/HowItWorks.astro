@@ -1,10 +1,11 @@
 ---
 import '../styles/globals.css'
-import { siteConfig } from '../config/site.config'
+import { getLangConfig } from '../utils/i18n'
 import LandingSection from './LandingSection.astro'
 import SectionHeader from './SectionHeader.astro'
 import { revealStaggerTokens } from '../utils/reveal'
 
+const siteConfig = getLangConfig(Astro.currentLocale)
 const howItWorks = siteConfig.howItWorks as any
 ---
 

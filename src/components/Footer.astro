@@ -1,10 +1,11 @@
 ---
 import '../styles/globals.css'
-import { siteConfig } from '../config/site.config'
+import { getLangConfig } from '../utils/i18n'
 import Icon from './Icon.astro'
 import { Image } from 'astro:assets'
 import logoImage from '../images/logo.png'
 
+const siteConfig = getLangConfig(Astro.currentLocale)
 const { brand, footer } = siteConfig
 const year = new Date().getFullYear()
 ---
@@ -14,7 +15,7 @@ const year = new Date().getFullYear()
     <div class="ac-footer__grid">
       <!-- Brand column -->
       <div class="ac-footer__brand">
-        <a href="/" class="ac-footer__logo">
+        <a href={Astro.currentLocale === 'en' ? '/en' : '/it'} class="ac-footer__logo">
           <!-- <Image src={logoImage} alt={brand.name} width={32} height={32} class="ac-footer__logo-img" /> -->
           <span class="gradient-text">{brand.name}</span>
         </a>
@@ -45,10 +46,20 @@ const year = new Date().getFullYear()
           </div>
         </div>
       ))}
+      <div class="ac-footer__column">
+        <div class="ac-footer__column-inner">
+          <h4 class="ac-footer__column-title">{Astro.currentLocale === 'it' ? 'Legale' : 'Legal'}</h4>
+          <a href={Astro.currentLocale === 'en' ? '/en/privacy' : '/privacy'} class="ac-footer__link">
+            {Astro.currentLocale === 'it' ? 'Informativa sulla Privacy' : 'Privacy Policy'}
+          </a>
+        </div>
+      </div>
     </div>
 
     <div class="ac-footer__bottom">
-      <p>&copy; {year} {brand.name}. All rights reserved.</p>
+      <p class="ac-footer__copyright">
+        &copy; {year} {brand.name}. {Astro.currentLocale === 'it' ? 'Tutti i diritti riservati.' : 'All rights reserved.'}
+      </p>
     </div>
   </div>
 </footer>

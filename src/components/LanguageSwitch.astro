@@ -1,0 +1,51 @@
+---
+const isIt = Astro.currentLocale === 'it';
+const currentPath = Astro.url.pathname;
+const toggleUrl = isIt 
+  ? currentPath.replace(/^\/it(\/|$)/, '/en$1') 
+  : currentPath.replace(/^\/en(\/|$)/, '/it$1');
+
+// Normalize URLs to remove double slashes
+const normalizedToggleUrl = toggleUrl.replace(/\/+/g, '/');
+---
+
+<a href={normalizedToggleUrl} class="ac-lang-switch" aria-label="Switch language">
+  <svg class="ac-lang-switch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"></circle>
+    <line x1="2" y1="12" x2="22" y2="12"></line>
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+  </svg>
+  <span class="ac-lang-switch-label">{isIt ? 'EN' : 'IT'}</span>
+</a>
+
+<style>
+  .ac-lang-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--ac-spacing-1-5);
+    padding: var(--ac-spacing-1-5) var(--ac-spacing-3);
+    font-size: var(--ac-text-xs);
+    font-weight: var(--ac-font-bold);
+    color: var(--ac-text-muted);
+    text-decoration: none;
+    border-radius: var(--ac-rounded-lg);
+    border: 0.0625rem solid var(--ac-border-color);
+    background-color: var(--ac-bg-muted);
+    transition: var(--ac-transition-fast);
+  }
+
+  .ac-lang-switch:hover {
+    color: var(--ac-text);
+    border-color: rgb(var(--ac-primary));
+    background-color: var(--ac-bg-subtle);
+  }
+
+  .ac-lang-switch-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .ac-lang-switch-label {
+    letter-spacing: 0.05em;
+  }
+</style>

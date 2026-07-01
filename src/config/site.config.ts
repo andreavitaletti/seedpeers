@@ -14,14 +14,14 @@ const siteConfigRaw = {
   /** ---- Brand ---- */
   brand: {
     name: "SeedPeers",
-    tagline: "Seed Saving Simplified",
+    tagline: "La conservazione dei semi a portata di tutti",
     logo: "/logo.svg",
   },
 
   /** ---- Navigation ---- */
   nav: {
     links: [] as { label: string; href: string }[],
-    cta: { label: "You matter", href: "#contact" },
+    cta: { label: "Partecipa", href: "#contact" },
   },
 
   /** ---- SEO & language (@astrojs/sitemap uses seo.siteUrl) ---- */
@@ -29,7 +29,7 @@ const siteConfigRaw = {
     siteUrl: "https://your-domain.com",
     defaultOgImage: "/favicon.svg",
     twitterHandle: undefined as string | undefined,
-    lang: "en",
+    lang: "it",
   },
 
   /**
@@ -71,20 +71,20 @@ const siteConfigRaw = {
   /** ---- Greenhouse Section ---- */
   greenhouse: {
     //badge: "Conservation",
-    title: "Where Function Meets Form",
+    title: "Dove la Funzione Incontra la Forma",
     description:
-      "The micro-greenhouses are the cornerstone of the SeedPeers network. Engineered to create ideal conditions for seed preservation and growth, they pair advanced functionality with a refined, minimalist design. More than just cultivation devices, they are living showcases of biodiversity that bring nature and beauty into everyday spaces.",
+      "Le micro-serre costituiscono la spina dorsale della rete SeedPeers. Progettate per creare le condizioni ideali per la conservazione e la crescita dei semi, uniscono funzionalità avanzate a un design raffinato e minimalista. Più che semplici dispositivi di coltivazione, sono vetrine viventi di biodiversità, capaci di portare la natura e la bellezza nei nostri spazi quotidiani.",
     image: greenhouseImg,
   },
 
   /** ---- Hero Section ---- */
   hero: {
     //badge: "Together we cultivate the future.",
-    title: "A collaborative effort\nto preserve seeds",
+    title: "Uno sforzo congiunto\nper preservare i semi",
     description:
-      "Seeds are at the heart of agriculture and food security, but climate change, monocultures, and habitat loss are rapidly eroding their diversity. <b>SeedPeers is a peer-to-peer network of micro-greenhouses</b> deployed in distributed indoor spaces such as homes, schools, and community buildings that preserves and cultivates a wide range of seeds, helping protect edible plant genetic diversity, strengthen the resilience of future food systems, and safeguard the cultivation knowledge and traditions that have sustained communities for generations.\n <b>Together we cultivate the future.</b>",
-    primaryCta: { label: "The Greenhouse", href: "#greenhouse" },
-    secondaryCta: { label: "How it works", href: "#howitworks" },
+      "I semi sono al centro dell'agricoltura e della sicurezza alimentare, ma i cambiamenti climatici, le monocolture e la perdita di habitat ne stanno erodendo rapidamente la diversità. <b>SeedPeers è una rete peer-to-peer di micro-serre</b> ospitate in ambienti indoor come case, scuole e spazi comuni, per conservare e coltivare una vasta gamma di semi, contribuendo così a proteggere la diversità genetica delle piante edibili, rafforzare la resilienza dei futuri sistemi alimentari e salvaguardare le conoscenze e le tradizioni di coltivazione che hanno sostenuto le comunità per generazioni.\n <b>Insieme coltiviamo il futuro.</b>",
+    primaryCta: { label: "La micro-serra", href: "#greenhouse" },
+    secondaryCta: { label: "Come funziona", href: "#howitworks" },
     /*
     stats: [
       { value: "10K+", label: "Active users" },
@@ -129,45 +129,45 @@ const siteConfigRaw = {
   /** ---- How It Works Section (optional) ---- */
   howItWorks: {
     //badge: "Process",
-    title: "How it works",
+    title: "Come funziona",
     description:
-      "Discover how easy it is to become a member of the SeedPeers community",
+      "Scopri com'è facile diventare un membro della comunità SeedPeers",
     steps: [
       {
         number: 1,
-        title: "Get your micro-greenhouse",
+        title: "Ottieni la tua micro-serra",
         description:
-          "Either buy or build your own micro-greenhouse. It is an open source/hardware project",
+          "Acquista o costruisci la tua micro-serra. È un progetto open source/hardware",
       },
       {
         number: 2,
-        title: "Join the network",
+        title: "Unisciti alla rete",
         description:
-          "Register your micro-greenhouse and become part of a growing community of cultivators.",
+          "Registra la tua micro-serra ed entra a far parte di una comunità di coltivatori in continua crescita.",
       },
       {
         number: 3,
-        title: "Get the seeds",
+        title: "Ricevi i semi",
         description:
-          "Receive your seeds, plant them in your micro-greenhouse, and start your growing journey. Seeds are distributed to increase diversity and resilience.",
+          "Ricevi i tuoi semi, piantali nella tua micro-serra e inizia il tuo percorso di coltivazione. I semi sono distribuiti per aumentare la diversità e la resilienza.",
       },
       {
         number: 4,
-        title: "Grow and Learn",
+        title: "Coltiva e Impara",
         description:
-          "Cultivate your plants, discover best practices, and learn from the community.",
+          "Coltiva le tue piante, scopri le migliori pratiche e impara dalla comunità.",
       },
       {
         number: 5,
-        title: "Share the knowledge",
+        title: "Condividi la conoscenza",
         description:
-          "Benefit from the collective expertise of the network and contribute your own insights to help others grow.",
+          "Beneficia dell'esperienza collettiva della rete e aiuta gli altri a crescere condividendo  le tue conoscenze.",
       },
       {
         number: 6,
-        title: "Share the harvest",
+        title: "Condividi il raccolto",
         description:
-          "Share the harvest with other members of the network, enriching the biodiversity and resilience of the network.",
+          "Condividi il raccolto con gli altri membri della rete, arricchendo la biodiversità e la resilienza della rete.",
       },
     ],
   },
@@ -494,16 +494,16 @@ const siteConfigRaw = {
   /** ---- Contact Section ---- */
   contact: {
     badge: undefined as string | undefined,
-    title: "Your voice matters",
+    title: "La tua voce conta",
     description:
-      "We’re building SeedPeers. Progress is going well, but we’re still early and your input can make a real difference. \n\n Completing this form is entirely optional, but your input helps us understand your needs, prioritize features, and build a platform that truly serves the community. The only required field is your email address so we can stay in touch.\n\n Join us, stay updated, and help shape what comes next.",
-    diyLabel: "Build or buy?",
-    payLabel: "Would you support us? (€/month)",
-    locationLabel: "Location",
+      "Stiamo costruendo SeedPeers. Lo sviluppo sta procedendo bene, ma siamo ancora all'inizio e il tuo contributo può fare la differenza. \n\n La compilazione di questo modulo è del tutto facoltativa, ma le tue risposte ci aiutano a comprendere le tue esigenze, a dare priorità alle funzionalità e a costruire una piattaforma che serva davvero la comunità. L'unico campo obbligatorio è il tuo indirizzo email per poter rimanere in contatto.\n\n Unisciti a noi, rimani aggiornato e aiutaci a plasmare il futuro.",
+    diyLabel: "Stai pensando di costruire o comprare la serra?",
+    payLabel: "Saresti disposto a sostenerci? (€/mese)",
+    locationLabel: "Dove ti trovi",
     channels: [
       {
         icon: "mail",
-        label: "Email us",
+        label: "Scrivici",
         href: "mailto:info@seedpeers.net",
         value: "info@seedpeers.net",
       },
@@ -517,19 +517,19 @@ const siteConfigRaw = {
       */
       {
         icon: "satellite",
-        label: "Headquarters",
+        label: "Sede",
         href: "#",
-        value: "Rome, Italy",
+        value: "Roma, Italy",
       },
     ],
     topics: [
-      { label: "General inquiry", value: "general" },
-      { label: "Sales & pricing", value: "sales" },
-      { label: "Technical support", value: "support" },
+      { label: "Richiesta generale", value: "general" },
+      { label: "Vendite e prezzi", value: "sales" },
+      { label: "Supporto tecnico", value: "support" },
       { label: "Partnership", value: "partners" },
-      { label: "Other", value: "other" },
+      { label: "Altro", value: "other" },
     ],
-    cta: "Send Message",
+    cta: "Invia Messaggio",
   },
 
   /** ---- Team Section ---- */
@@ -840,7 +840,7 @@ const siteConfigRaw = {
 
   /** ---- Footer ---- */
   footer: {
-    description: "Together we cultivate the future.",
+    description: "Insieme coltiviamo il futuro.",
 
     columns: [] as {
       title: string;
@@ -853,9 +853,117 @@ const siteConfigRaw = {
       { icon: "linkedin", href: "https://www.linkedin.com/company/seedpeers" },
     ],
   },
+
+  /** ---- Language Overrides ---- */
+  locales: {
+    en: {
+      brand: {
+        tagline: "Seed Saving Simplified",
+      },
+      nav: {
+        links: [] as { label: string; href: string }[],
+        cta: { label: "You matter", href: "#contact" },
+      },
+      seo: {
+        lang: "en",
+      },
+      greenhouse: {
+        title: "Where Function Meets Form",
+        description:
+          "The micro-greenhouses form the backbone of the SeedPeers network. Engineered to create ideal conditions for seed preservation and growth, they pair advanced functionality with a refined, minimalist design. More than just cultivation devices, they are living showcases of biodiversity that bring nature and beauty into our everyday spaces.",
+      },
+      hero: {
+        title: "A collaborative effort\nto preserve seeds",
+        description:
+          "Seeds are at the heart of agriculture and food security, but climate change, monocultures, and habitat loss are rapidly eroding their diversity. <b>SeedPeers is a peer-to-peer network of micro-greenhouses</b> deployed in indoor environments such as homes, schools, and community buildings that preserves and cultivates a wide range of seeds, helping protect edible plant genetic diversity, strengthen the resilience of future food systems, and safeguard the cultivation knowledge and traditions that have sustained communities for generations.\n <b>Together we cultivate the future.</b>",
+        primaryCta: { label: "The micro-greenhouse", href: "#greenhouse" },
+        secondaryCta: { label: "How it works", href: "#howitworks" },
+      },
+      howItWorks: {
+        title: "How it works",
+        description:
+          "Discover how easy it is to become a member of the SeedPeers community",
+        steps: [
+          {
+            number: 1,
+            title: "Get your micro-greenhouse",
+            description:
+              "Either buy or build your own micro-greenhouse. It is an open source/hardware project",
+          },
+          {
+            number: 2,
+            title: "Join the network",
+            description:
+              "Register your micro-greenhouse and become part of a growing community of cultivators.",
+          },
+          {
+            number: 3,
+            title: "Get the seeds",
+            description:
+              "Receive your seeds, plant them in your micro-greenhouse, and start your growing journey. Seeds are distributed to increase diversity and resilience.",
+          },
+          {
+            number: 4,
+            title: "Grow and Learn",
+            description:
+              "Cultivate your plants, discover best practices, and learn from the community.",
+          },
+          {
+            number: 5,
+            title: "Share the knowledge",
+            description:
+              "Benefit from the collective expertise of the network and contribute your own insights to help others grow.",
+          },
+          {
+            number: 6,
+            title: "Share the harvest",
+            description:
+              "Share the harvest with other members of the network, enriching the biodiversity and resilience of the network.",
+          },
+        ],
+      },
+      contact: {
+        title: "Your voice matters",
+        description:
+          "We’re building SeedPeers. Progress is going well, but we’re still early and your input can make a real difference. \n\n Completing this form is entirely optional, but your input helps us understand your needs, prioritize features, and build a platform that truly serves the community. The only required field is your email address so we can stay in touch.\n\n Join us, stay updated, and help shape what comes next.",
+        diyLabel: "Build or buy your own micro-greenhouse?",
+        payLabel: "Would you support us? (€/month)",
+        locationLabel: "Location",
+        channels: [
+          {
+            icon: "mail",
+            label: "Email us",
+            href: "mailto:info@seedpeers.net",
+            value: "info@seedpeers.net",
+          },
+          {
+            icon: "satellite",
+            label: "Headquarters",
+            href: "#",
+            value: "Rome, Italy",
+          },
+        ],
+        topics: [
+          { label: "General inquiry", value: "general" },
+          { label: "Sales & pricing", value: "sales" },
+          { label: "Technical support", value: "support" },
+          { label: "Partnership", value: "partners" },
+          { label: "Other", value: "other" },
+        ],
+        cta: "Send Message",
+      },
+      footer: {
+        description: "Together we cultivate the future.",
+      },
+    },
+  },
 };
 
 export const siteConfig = siteConfigSchema.parse(
   siteConfigRaw,
-) as typeof siteConfigRaw;
+) as typeof siteConfigRaw & {
+  locales?: {
+    en?: Partial<typeof siteConfigRaw>;
+  };
+};
 export type SiteConfig = typeof siteConfig;

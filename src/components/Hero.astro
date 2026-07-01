@@ -1,9 +1,10 @@
 ---
 import '../styles/globals.css'
-import { siteConfig } from '../config/site.config'
+import { getLangConfig } from '../utils/i18n'
 import Badge from './Badge.astro'
 import Icon from './Icon.astro'
 
+const siteConfig = getLangConfig(Astro.currentLocale)
 const hero = siteConfig.hero as any
 const titleLines = (hero.title || '').split('\n')
 

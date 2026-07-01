@@ -1,9 +1,10 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import { siteConfig } from '../config/site.config'
+import Layout from '../../layouts/Layout.astro'
+import { getLangConfig } from '../../utils/i18n'
 
-const title = `Privacy Policy — ${siteConfig.brand.name}`
-const description = `How ${siteConfig.brand.name} collects, uses, and protects your personal information.`
+const config = getLangConfig(Astro.currentLocale)
+const title = `Privacy Policy — ${config.brand.name}`
+const description = `How ${config.brand.name} collects, uses, and protects your personal information.`
 
 const updated = 'April 7, 2026'
 ---
@@ -26,7 +27,7 @@ const updated = 'April 7, 2026'
       <section class="ac-legal__section" aria-labelledby="legal-intro">
         <h2 id="legal-intro">Introduction</h2>
         <p>
-          {siteConfig.brand.name} (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) respects your privacy. This policy
+          {config.brand.name} (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) respects your privacy. This policy
           describes how we handle information when you use our website and services (the
           &quot;Services&quot;).
         </p>

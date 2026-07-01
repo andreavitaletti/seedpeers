@@ -1,0 +1,202 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import { getLangConfig } from '../../utils/i18n'
+
+const config = getLangConfig(Astro.currentLocale)
+const title = `Informativa sulla Privacy — ${config.brand.name}`
+const description = `Come ${config.brand.name} raccoglie, utilizza e protegge le tue informazioni personali.`
+
+const updated = '7 Aprile 2026'
+---
+
+<Layout title={title} description={description}>
+  <article class="ac-legal">
+    <header class="ac-legal__header">
+      <h1 class="ac-legal__title">Informativa sulla Privacy</h1>
+      <p class="ac-legal__meta">
+        Ultimo aggiornamento: <time datetime="2026-04-07">{updated}</time>
+      </p>
+    </header>
+
+    <div class="ac-legal__body">
+      <p class="ac-legal__notice">
+        Questa pagina è un <strong>testo di esempio</strong> per un modello iniziale. Sostituiscilo con la tua vera informativa
+        e falla revisionare da un consulente legale qualificato prima della pubblicazione.
+      </p>
+
+      <section class="ac-legal__section" aria-labelledby="legal-intro">
+        <h2 id="legal-intro">Introduzione</h2>
+        <p>
+          {config.brand.name} (&quot;noi&quot;, &quot;ci&quot; o &quot;nostro&quot;) rispetta la tua privacy. Questa informativa
+          descrive come gestiamo le informazioni quando utilizzi il nostro sito web e i nostri servizi (i
+          &quot;Servizi&quot;).
+        </p>
+      </section>
+
+      <section class="ac-legal__section" aria-labelledby="legal-collect">
+        <h2 id="legal-collect">Informazioni che raccogliamo</h2>
+        <p>Potremmo raccogliere:</p>
+        <ul>
+          <li>
+            <strong>Dati dell'account</strong> — come nome, email e organizzazione quando ti registri o ci contatti.
+          </li>
+          <li>
+            <strong>Dati di utilizzo</strong> — come pagine visitate, posizione approssimativa (derivata dall'IP), tipo di dispositivo e
+            timestamp.
+          </li>
+          <li>
+            <strong>Dati tecnici</strong> — come tipo di browser, cookie e tecnologie simili come descritto di seguito.
+          </li>
+        </ul>
+      </section>
+
+      <section class="ac-legal__section" aria-labelledby="legal-use">
+        <h2 id="legal-use">Come utilizziamo le informazioni</h2>
+        <p>Utilizziamo le informazioni raccolte per:</p>
+        <ul>
+          <li>Fornire, gestire e migliorare i Servizi;</li>
+          <li>Comunicare con te in merito ad aggiornamenti, sicurezza e supporto;</li>
+          <li>Analizzare l'utilizzo in forma aggregata o anonimizzata;</li>
+          <li>Rispettare la legge e proteggere diritti, incolumità e sicurezza.</li>
+        </ul>
+      </section>
+
+      <section class="ac-legal__section" aria-labelledby="legal-cookies">
+        <h2 id="legal-cookies">Cookie e tecnologie simili</h2>
+        <p>
+          Noi e i nostri partner potremmo utilizzare cookie, memoria locale e tecnologie simili per il funzionamento essenziale,
+          le preferenze (come il tema), le analisi e il marketing, laddove consentito. Puoi controllare i cookie attraverso
+          le impostazioni del tuo browser.
+        </p>
+      </section>
+
+      <section class="ac-legal__section" aria-labelledby="legal-sharing">
+        <h2 id="legal-sharing">Condivisione e subresponsabili</h2>
+        <p>
+          Potremmo condividere le informazioni con fornitori di servizi che ci assistono (ad es. hosting, analisi, invio di email),
+          soggetti a contratti che limitano l'uso alla fornitura di servizi per nostro conto. Potremmo anche divulgare
+          informazioni se richiesto dalla legge o per proteggere gli utenti e il pubblico.
+        </p>
+      </section>
+
+      <section class="ac-legal__section" aria-labelledby="legal-rights">
+        <h2 id="legal-rights">I tuoi diritti e le tuoi scelte</h2>
+        <p>
+          A seconda di dove vivi, potresti avere il diritto di accedere, correggere, cancellare o esportare i tuoi dati personali,
+          o di opporti a determinati trattamenti. Contattaci per esercitare questi diritti. Puoi anche annullare l'iscrizione alle
+          email di marketing utilizzando il link presente in tali messaggi.
+        </p>
+      </section>
+
+      <section class="ac-legal__section" aria-labelledby="legal-retention">
+        <h2 id="legal-retention">Conservazione dei dati</h2>
+        <p>
+          Conserviamo le informazioni solo per il tempo necessario agli scopi sopra indicati, a meno che non sia
+          richiesto un periodo più lungo dalla legge.
+        </p>
+      </section>
+
+      <section class="ac-legal__section" aria-labelledby="legal-changes">
+        <h2 id="legal-changes">Modifiche a questa informativa</h2>
+        <p>
+          Potremmo aggiornare questa informativa di tanto in tanto. Pubblicheremo la nuova versione su questa pagina e modificheremo la
+          data di &quot;Ultimo aggiornamento&quot;.
+        </p>
+      </section>
+
+      <section class="ac-legal__section" aria-labelledby="legal-contact">
+        <h2 id="legal-contact">Contatti</h2>
+        <p>
+          Domande su questa informativa: utilizza le opzioni di contatto sul nostro sito web o contatta il tuo rappresentante di riferimento.
+        </p>
+      </section>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .ac-legal {
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: var(--ac-spacing-12) var(--ac-container-padding) var(--ac-spacing-24);
+  }
+
+  .ac-legal__header {
+    margin-bottom: var(--ac-spacing-10);
+    padding-bottom: var(--ac-spacing-8);
+    border-bottom: var(--ac-border) solid var(--ac-border-color);
+  }
+
+  .ac-legal__title {
+    font-size: var(--ac-text-4xl);
+    font-weight: var(--ac-font-bold);
+    line-height: var(--ac-leading-tight);
+    color: var(--ac-text);
+    margin: 0 0 var(--ac-spacing-3);
+  }
+
+  .ac-legal__meta {
+    margin: 0;
+    font-size: var(--ac-text-sm);
+    color: var(--ac-text-muted);
+  }
+
+  .ac-legal__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ac-spacing-10);
+    font-size: var(--ac-text-md);
+    line-height: var(--ac-leading-relaxed);
+    color: var(--ac-text);
+  }
+
+  .ac-legal__notice {
+    margin: 0;
+    padding: var(--ac-spacing-4) var(--ac-spacing-5);
+    border-radius: var(--ac-rounded-xl);
+    background: var(--ac-bg-subtle);
+    border: var(--ac-border) solid var(--ac-border-color);
+    font-size: var(--ac-text-sm);
+    color: var(--ac-text-muted);
+  }
+
+  .ac-legal__section h2 {
+    font-size: var(--ac-text-xl);
+    font-weight: var(--ac-font-bold);
+    color: var(--ac-text);
+    margin: 0 0 var(--ac-spacing-4);
+    line-height: var(--ac-leading-tight);
+  }
+
+  .ac-legal__section p {
+    margin: 0 0 var(--ac-spacing-4);
+  }
+
+  .ac-legal__section p:last-child {
+    margin-bottom: 0;
+  }
+
+  .ac-legal__section ul {
+    margin: 0 0 var(--ac-spacing-4);
+    padding-left: var(--ac-spacing-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--ac-spacing-3);
+    color: var(--ac-text-muted);
+  }
+
+  .ac-legal__section li strong {
+    color: var(--ac-text);
+    font-weight: var(--ac-font-semibold);
+  }
+
+  .ac-legal__section:last-child p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 48rem) {
+    .ac-legal__title {
+      font-size: var(--ac-text-3xl);
+    }
+  }
+</style>

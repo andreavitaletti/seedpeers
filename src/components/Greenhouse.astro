@@ -1,9 +1,10 @@
 ---
 import '../styles/globals.css'
-import { siteConfig } from '../config/site.config'
+import { getLangConfig } from '../utils/i18n'
 import LandingSection from './LandingSection.astro'
 import { Image } from 'astro:assets'
 
+const siteConfig = getLangConfig(Astro.currentLocale)
 const greenhouse = siteConfig.greenhouse as any
 ---
 
