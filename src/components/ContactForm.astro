@@ -162,6 +162,18 @@ const t = {
     gap: var(--ac-spacing-4);
   }
 
+  .ac-contact__row :global(.ac-select-wrapper),
+  .ac-contact__row :global(.ac-input-wrapper) {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .ac-contact__row :global(.ac-select-wrapper > div),
+  .ac-contact__row :global(.ac-input-wrapper > div) {
+    margin-top: auto;
+  }
+
   .ac-contact__privacy {
     font-size: var(--ac-text-xs);
     color: var(--ac-text-muted);
