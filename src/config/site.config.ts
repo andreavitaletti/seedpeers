@@ -82,7 +82,7 @@ const siteConfigRaw = {
     //badge: "Together we cultivate the future.",
     title: "Uno sforzo congiunto\nper preservare i semi",
     description:
-      "I semi sono al centro dell'agricoltura e della sicurezza alimentare, ma i cambiamenti climatici, le monocolture e la perdita di habitat ne stanno erodendo rapidamente la diversità. <b>SeedPeers è una rete no-profit peer-to-peer di micro-serre</b> ospitate in ambienti indoor come case, scuole e spazi comuni, per conservare e coltivare una vasta gamma di semi, contribuendo così a proteggere la diversità genetica delle piante edibili, rafforzare la resilienza dei futuri sistemi alimentari e salvaguardare le conoscenze e le tradizioni di coltivazione che hanno sostenuto le comunità per generazioni.\n <b>Insieme coltiviamo il futuro.</b>",
+      "I semi sono al centro dell'agricoltura e della sicurezza alimentare, ma i cambiamenti climatici, le monocolture e la perdita di habitat ne stanno erodendo rapidamente la diversità. <b>SeedPeers è una rete no-profit peer-to-peer di micro-serre collocate in ambienti indoor </b> come case, scuole e spazi comuni, <b>dove coltiviamo e preserviamo semi di specie e varietà edibili, essenziali per la diversità genetica delle colture alimentari</b>. Il nostro obiettivo è tutelare questo patrimonio genetico, rafforzare la resilienza dei futuri sistemi alimentari e salvaguardare le conoscenze sulla coltivazione che hanno sostenuto le comunità per generazioni.\n <b>Insieme coltiviamo il futuro.</b>",
     primaryCta: { label: "La micro-serra", href: "#greenhouse" },
     secondaryCta: { label: "Come funziona", href: "#howitworks" },
     /*
@@ -875,7 +875,7 @@ const siteConfigRaw = {
       hero: {
         title: "A collaborative effort\nto preserve seeds",
         description:
-          "Seeds are at the heart of agriculture and food security, but climate change, monocultures, and habitat loss are rapidly eroding their diversity. <b>SeedPeers is a non-profit peer-to-peer network of micro-greenhouses</b> deployed in indoor environments such as homes, schools, and community buildings that preserves and cultivates a wide range of seeds, helping protect edible plant genetic diversity, strengthen the resilience of future food systems, and safeguard the cultivation knowledge and traditions that have sustained communities for generations.\n <b>Together we cultivate the future.</b>",
+          "Seeds are at the heart of agriculture and food security, but climate change, monocultures, and habitat loss are rapidly eroding their diversity. <b>SeedPeers is a non-profit peer-to-peer network of micro-greenhouses deployed in indoor environments </b> such as homes, schools, and community buildings, <b>where we cultivate and preserve seeds from edible plant species and varieties that are essential to the genetic diversity of food crops</b>. Our mission is to protect this genetic heritage, strengthen the resilience of future food systems, and safeguard the cultivation knowledge that have sustained communities for generations.\n<b>Together we cultivate the future.</b>",
         primaryCta: { label: "The micro-greenhouse", href: "#greenhouse" },
         secondaryCta: { label: "How it works", href: "#howitworks" },
       },
