@@ -1,9 +1,9 @@
 ---
 const isIt = Astro.currentLocale === 'it';
 const currentPath = Astro.url.pathname;
-const toggleUrl = isIt 
-  ? currentPath.replace(/^\/it(\/|$)/, '/en$1') 
-  : currentPath.replace(/^\/en(\/|$)/, '/it$1');
+const toggleUrl = isIt
+  ? `/en${currentPath}`
+  : currentPath.replace(/^\/en(\/|$)/, '/$1');
 
 // Normalize URLs to remove double slashes
 const normalizedToggleUrl = toggleUrl.replace(/\/+/g, '/');

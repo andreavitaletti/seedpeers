@@ -10,13 +10,13 @@ import logoImage from '../images/logo.png'
 const siteConfig = getLangConfig(Astro.currentLocale)
 const { brand, nav } = siteConfig
 
-const homeUrl = Astro.currentLocale === 'en' ? '/en' : '/it'
-const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/it' || Astro.url.pathname === '/it/' || Astro.url.pathname === '/en' || Astro.url.pathname === '/en/';
+const homeUrl = Astro.currentLocale === 'en' ? '/en' : '/'
+const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/en' || Astro.url.pathname === '/en/';
 
 function localizeUrl(url: string) {
   if (url.startsWith('#')) {
     if (isHome) return url;
-    const prefix = Astro.currentLocale === 'en' ? '/en' : '/it';
+    const prefix = Astro.currentLocale === 'en' ? '/en' : '';
     return `${prefix}${url}`;
   }
   return url;

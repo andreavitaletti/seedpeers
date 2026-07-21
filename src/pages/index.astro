@@ -1,4 +1,14 @@
 ---
-// This root index page is required by Astro to generate the automatic redirect
-// to the default locale ("/it") when prefixDefaultLocale is enabled.
+import Layout from '../layouts/Layout.astro'
+import Hero from '../components/Hero.astro'
+import Greenhouse from '../components/Greenhouse.astro'
+import HowItWorks from '../components/HowItWorks.astro'
+import ContactForm from '../components/ContactForm.astro'
 ---
+
+<Layout>
+  <Hero />
+  <Greenhouse />
+  <HowItWorks />
+  <ContactForm />
+</Layout>
