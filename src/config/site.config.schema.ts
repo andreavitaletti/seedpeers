@@ -55,6 +55,22 @@ export const siteConfigSchema = z.looseObject({
       image: z.any(),
     })
     .optional(),
+  news: z
+    .object({
+      badge: z.string().optional(),
+      title: z.string(),
+      description: z.string().optional(),
+      items: z.array(
+        z.object({
+          date: z.string().optional(),
+          title: z.string(),
+          description: z.string(),
+          href: z.string(),
+          ctaLabel: z.string().optional(),
+        }),
+      ),
+    })
+    .optional(),
   locales: z
     .object({
       en: z
@@ -109,6 +125,22 @@ export const siteConfigSchema = z.looseObject({
                   number: z.number(),
                   title: z.string(),
                   description: z.string(),
+                }),
+              ),
+            })
+            .optional(),
+          news: z
+            .object({
+              badge: z.string().optional(),
+              title: z.string(),
+              description: z.string().optional(),
+              items: z.array(
+                z.object({
+                  date: z.string().optional(),
+                  title: z.string(),
+                  description: z.string(),
+                  href: z.string(),
+                  ctaLabel: z.string().optional(),
                 }),
               ),
             })

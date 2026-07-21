@@ -172,6 +172,24 @@ const siteConfigRaw = {
     ],
   },
 
+  /** ---- News Section ---- */
+  news: {
+    badge: "Novità",
+    title: "Ultime notizie",
+    description: "Aggiornamenti ed eventi dalla rete SeedPeers",
+    items: [
+      {
+        // TODO: aggiornare con le date e la sede definitive dell'evento
+        date: "23-25 Ottobre 2026",
+        title: "SeedPeers a Maker Faire Rome",
+        description:
+          "Vieni a trovarci al nostro stand: parliamo di micro-serre, conservazione dei semi e biodiversità urbana.",
+        href: "https://makerfairerome.eu/en/",
+        ctaLabel: "Scopri di più",
+      },
+    ],
+  },
+
   /** ---- Features Section ---- */
   features: {
     badge: "Features",
@@ -919,6 +937,22 @@ const siteConfigRaw = {
             title: "Share the harvest",
             description:
               "Share the harvest with other members of the network, enriching the biodiversity and resilience of the network.",
+          },
+        ],
+      },
+      news: {
+        badge: "News",
+        title: "Latest news",
+        description: "Updates and events from the SeedPeers network",
+        items: [
+          {
+            // TODO: update with the final event dates and venue
+            date: "23-25 October 2026",
+            title: "SeedPeers at Maker Faire Rome",
+            description:
+              "Come find us at our booth: we'll be talking about micro-greenhouses, seed preservation, and urban biodiversity.",
+            href: "https://makerfairerome.eu/en/",
+            ctaLabel: "Learn more",
           },
         ],
       },

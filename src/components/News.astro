@@ -1,0 +1,111 @@
+---
+import '../styles/globals.css'
+import { getLangConfig } from '../utils/i18n'
+import LandingSection from './LandingSection.astro'
+import SectionHeader from './SectionHeader.astro'
+import Icon from './Icon.astro'
+import { revealStaggerTokens } from '../utils/reveal'
+
+const siteConfig = getLangConfig(Astro.currentLocale)
+const news = siteConfig.news as any
+---
+
+<LandingSection id="news" class="section ac-section-band--subtle">
+  <div class="ac-news">
+    <SectionHeader
+      badge={news.badge}
+      title={news.title}
+      description={news.description}
+    />
+
+    <div class="ac-news__grid">
+      {news.items.map((item: any, i: number) => (
+        <article class:list={['ac-news__card', ...revealStaggerTokens(i)]}>
+          {item.date && <time class="ac-news__date">{item.date}</time>}
+          <h3 class="ac-news__title">{item.title}</h3>
+          <p class="ac-news__desc">{item.description}</p>
+          <a href={item.href} class="ac-news__link" target="_blank" rel="noopener">
+            {item.ctaLabel ?? item.href}
+            <Icon name="arrow-right" size={16} />
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</LandingSection>
+
+<style>
+  .ac-news {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ac-spacing-16);
+  }
+
+  .ac-news__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: var(--ac-spacing-6);
+    row-gap: var(--ac-spacing-8);
+  }
+
+  @media (min-width: 40rem) {
+    .ac-news__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .ac-news__card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ac-spacing-3);
+    padding: var(--ac-spacing-6);
+    background: var(--ac-card-bg);
+    border: 0.0625rem solid var(--ac-border-color);
+    border-radius: var(--ac-rounded-2xl);
+    box-shadow: var(--ac-shadow-sm);
+    transition: var(--ac-transition);
+  }
+
+  .ac-news__card:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: var(--ac-shadow-lg);
+    border-color: rgba(var(--ac-primary), 0.2);
+  }
+
+  .ac-news__date {
+    font-size: var(--ac-text-xs);
+    font-weight: var(--ac-font-semibold);
+    color: rgb(var(--ac-primary));
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .ac-news__title {
+    font-size: var(--ac-text-lg);
+    font-weight: var(--ac-font-bold);
+    color: var(--ac-text);
+    line-height: var(--ac-leading-tight);
+  }
+
+  .ac-news__desc {
+    font-size: var(--ac-text-sm);
+    color: var(--ac-text-muted);
+    line-height: var(--ac-leading-relaxed);
+    flex: 1;
+  }
+
+  .ac-news__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--ac-spacing-2);
+    font-size: var(--ac-text-sm);
+    font-weight: var(--ac-font-semibold);
+    color: rgb(var(--ac-primary));
+    text-decoration: none;
+    align-self: flex-start;
+  }
+
+  .ac-news__link:hover {
+    text-decoration: underline;
+  }
+</style>

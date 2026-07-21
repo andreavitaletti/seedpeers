@@ -31,6 +31,10 @@ export function getLangConfig(locale: string | undefined) {
         ...siteConfig.howItWorks,
         ...enOverrides.howItWorks,
       },
+      news: {
+        ...siteConfig.news,
+        ...enOverrides.news,
+      },
       contact: {
         ...siteConfig.contact,
         ...enOverrides.contact,
