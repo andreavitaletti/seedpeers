@@ -69,9 +69,12 @@
       {
         "date": "23-25 October 2026",
         "title": "SeedPeers at Maker Faire Rome",
-        "description": "Come find us at our booth: we'll be talking about micro-greenhouses, seed preservation, and urban biodiversity.",
-        "href": "https://makerfairerome.eu/en/",
-        "ctaLabel": "Learn more"
+        "description": "Come find us at our booth at <a href=\"https://makerfairerome.eu/en/\" target=\"_blank\" rel=\"noopener\">Maker Faire Rome</a>: we'll be talking about micro-greenhouses, seed preservation, and urban biodiversity."
+      },
+      {
+        "date": "25 September 2026",
+        "title": "Primula palinuri Petagna",
+        "description": "The first plant we will take care of is Primula Palinuri Petagna, with a few specimens donated by the <a href=\"https://ortobotanico.web.uniroma1.it/it/la-banca-del-germoplasma/la-banca-del-germoplasma\" target=\"_blank\" rel=\"noopener\">Germplasm Bank of the Rome Botanical Garden</a> (page in Italian), a partner of the European LIFE SEEDFORCE project."
       }
     ]
   },

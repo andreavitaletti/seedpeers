@@ -3,7 +3,6 @@ import '../styles/globals.css'
 import type { Translations } from '../i18n'
 import LandingSection from './LandingSection.astro'
 import SectionHeader from './SectionHeader.astro'
-import Icon from './Icon.astro'
 import { revealStaggerTokens } from '../utils/reveal'
 
 interface Props {
@@ -27,11 +26,7 @@ const news = t.news as any
         <article class:list={['ac-news__card', ...revealStaggerTokens(i)]}>
           {item.date && <time class="ac-news__date">{item.date}</time>}
           <h3 class="ac-news__title">{item.title}</h3>
-          <p class="ac-news__desc">{item.description}</p>
-          <a href={item.href} class="ac-news__link" target="_blank" rel="noopener">
-            {item.ctaLabel ?? item.href}
-            <Icon name="arrow-right" size={16} />
-          </a>
+          <p class="ac-news__desc" set:html={item.description} />
         </article>
       ))}
     </div>
@@ -98,18 +93,11 @@ const news = t.news as any
     flex: 1;
   }
 
-  .ac-news__link {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--ac-spacing-2);
-    font-size: var(--ac-text-sm);
-    font-weight: var(--ac-font-semibold);
+  /* Links written inside the description (inline HTML from src/i18n/*.json) */
+  .ac-news__desc :global(a) {
     color: rgb(var(--ac-primary));
-    text-decoration: none;
-    align-self: flex-start;
-  }
-
-  .ac-news__link:hover {
     text-decoration: underline;
   }
+
+
 </style>

@@ -16,11 +16,11 @@ Static output, no JS framework, light/dark theme.
 | Favicon, robots.txt, custom domain                  | `public/`                                   |
 
 The two JSON files must have **the same keys**: `npm run build` fails if they drift apart.
-Text fields such as `hero.description` and the privacy sections accept inline HTML (`<b>`, `<a>`, `<strong>`).
+Text fields such as `hero.description`, `news.items[].description` and the privacy sections accept inline HTML (`<b>`, `<a>`, `<strong>`).
 
 ### Common tasks
 
-- **Add a news item**: append an object to `news.items` in both JSON files (`date`, `title`, `description`, `href`, `ctaLabel`).
+- **Add a news item**: append an object to `news.items` in both JSON files (`date`, `title`, `description`); put links inside `description` as `<a href=\"…\" target=\"_blank\" rel=\"noopener\">…</a>`.
 - **Hide a section**: remove (or comment out) its line in `src/components/Landing.astro`.
 - **Change the contact form destination**: update `googleForm.actionUrl` and the `entry.XXXX` IDs in `src/site.ts` (take them from the Google Form's pre-filled link). Leave `actionUrl` empty to make the form a no-op demo.
 - **Enable Umami analytics**: set `PUBLIC_UMAMI_WEBSITE_ID` in a local `.env` file, and as an `env:` entry of the build step in `.github/workflows/deploy.yml` for production.

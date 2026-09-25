@@ -63,15 +63,18 @@
   },
   "news": {
     "badge": "Novità",
-    "title": "Ultime notizie",
+    "title": "Novità",
     "description": "Aggiornamenti ed eventi dalla rete SeedPeers",
     "items": [
       {
         "date": "23-25 Ottobre 2026",
         "title": "SeedPeers a Maker Faire Rome",
-        "description": "Vieni a trovarci al nostro stand: parliamo di micro-serre, conservazione dei semi e biodiversità urbana.",
-        "href": "https://makerfairerome.eu/en/",
-        "ctaLabel": "Scopri di più"
+        "description": "Vieni a trovarci al nostro stand alla <a href=\"https://makerfairerome.eu/en/\" target=\"_blank\" rel=\"noopener\">Maker Faire Rome</a>: parliamo di micro-serre, conservazione dei semi e biodiversità urbana."
+      },
+      {
+        "date": "25 Settembre 2026",
+        "title": "La Primula Palinuri Petagna",
+        "description": "La prima pianta di cui ci occuperemo è la Primula Palinuri Petagna, con alcuni esemplari donati dalla <a href=\"https://ortobotanico.web.uniroma1.it/it/la-banca-del-germoplasma/la-banca-del-germoplasma\" target=\"_blank\" rel=\"noopener\">Banca del Germoplasma dell'Orto Botanico di Roma</a>, partner del progetto europeo LIFE SEEDFORCE."
       }
     ]
   },
