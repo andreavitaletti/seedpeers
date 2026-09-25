@@ -1,13 +1,17 @@
 ---
 import '../styles/globals.css'
-import { getLangConfig } from '../utils/i18n'
+import type { Translations } from '../i18n'
 import LandingSection from './LandingSection.astro'
 import SectionHeader from './SectionHeader.astro'
 import Icon from './Icon.astro'
 import { revealStaggerTokens } from '../utils/reveal'
 
-const siteConfig = getLangConfig(Astro.currentLocale)
-const news = siteConfig.news as any
+interface Props {
+  t: Translations
+}
+
+const { t } = Astro.props
+const news = t.news as any
 ---
 
 <LandingSection id="news" class="section ac-section-band--subtle">

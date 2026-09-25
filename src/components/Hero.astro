@@ -1,11 +1,14 @@
 ---
 import '../styles/globals.css'
-import { getLangConfig } from '../utils/i18n'
+import type { Translations } from '../i18n'
 import Badge from './Badge.astro'
-import Icon from './Icon.astro'
 
-const siteConfig = getLangConfig(Astro.currentLocale)
-const hero = siteConfig.hero as any
+interface Props {
+  t: Translations
+}
+
+const { t } = Astro.props
+const hero = t.hero as any
 const titleLines = (hero.title || '').split('\n')
 
 function formatDescription(text: string) {

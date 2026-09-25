@@ -1,0 +1,212 @@
+{
+  "lang": "en",
+  "langLabel": "EN",
+  "otherLang": "it",
+  "otherLangLabel": "IT",
+  "brand": {
+    "tagline": "Seed Saving Simplified"
+  },
+  "ui": {
+    "skipLink": "Skip to main content",
+    "toggleMenu": "Toggle menu",
+    "switchLanguage": "Switch to Italian"
+  },
+  "nav": {
+    "links": [],
+    "cta": { "label": "You matter", "href": "#contact" }
+  },
+  "hero": {
+    "title": "A collaborative effort\nto preserve seeds",
+    "description": "Seeds are living repositories of biodiversity, yet climate change, habitat loss, and unsustainable land use are driving many plant species toward extinction. <b>SeedPeers is a non-profit peer-to-peer network of micro-greenhouses deployed in indoor environments</b> such as homes, schools, and community buildings, <b>where we cultivate and preserve seeds of plant species included in the <a href=\"https://www.iucnredlist.org/\"> <u>IUCN Red List of Threatened Species </u></a>, together with other locally threatened and underutilized species.</b> Our aim is to turn citizens into active agents of biodiversity conservation by learning and practicing plant cultivation, propagation, and seed conservation.\n<b>Together we cultivate the future.</b>",
+    "primaryCta": { "label": "The micro-greenhouse", "href": "#greenhouse" },
+    "secondaryCta": { "label": "How it works", "href": "#howitworks" }
+  },
+  "greenhouse": {
+    "title": "Where Function Meets Form",
+    "description": "The micro-greenhouses form the backbone of the SeedPeers network. Engineered to create ideal conditions for seed preservation and growth, they pair advanced functionality with a refined, minimalist design. More than just cultivation devices, they are living showcases of biodiversity that bring nature and beauty into our everyday spaces."
+  },
+  "howItWorks": {
+    "title": "How it works",
+    "description": "Discover how easy it is to become a member of the SeedPeers community",
+    "steps": [
+      {
+        "number": 1,
+        "title": "Get your micro-greenhouse",
+        "description": "Either buy or build your own micro-greenhouse. It is an open source/hardware project"
+      },
+      {
+        "number": 2,
+        "title": "Join the network",
+        "description": "Register your micro-greenhouse and become part of a growing community of cultivators."
+      },
+      {
+        "number": 3,
+        "title": "Get the seeds",
+        "description": "Receive your seeds, plant them in your micro-greenhouse, and start your growing journey. Seeds are distributed to increase diversity and resilience."
+      },
+      {
+        "number": 4,
+        "title": "Grow and Learn",
+        "description": "Cultivate your plants, discover best practices, and learn from the community."
+      },
+      {
+        "number": 5,
+        "title": "Share the knowledge",
+        "description": "Benefit from the collective expertise of the network and contribute your own insights to help others grow."
+      },
+      {
+        "number": 6,
+        "title": "Share the harvest",
+        "description": "Share the harvest with other members of the network, enriching the biodiversity and resilience of the network."
+      }
+    ]
+  },
+  "news": {
+    "badge": "News",
+    "title": "Latest news",
+    "description": "Updates and events from the SeedPeers network",
+    "items": [
+      {
+        "date": "23-25 October 2026",
+        "title": "SeedPeers at Maker Faire Rome",
+        "description": "Come find us at our booth: we'll be talking about micro-greenhouses, seed preservation, and urban biodiversity.",
+        "href": "https://makerfairerome.eu/en/",
+        "ctaLabel": "Learn more"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Your voice matters",
+    "description": "We’re building SeedPeers. Progress is going well, but we’re still early and your input can make a real difference. \n\n Completing this form is entirely optional, but your input helps us understand your needs, prioritize features, and build a platform that truly serves the community. The only required field is your email address so we can stay in touch.\n\n Join us, stay updated, and help shape what comes next.",
+    "channels": [
+      {
+        "icon": "mail",
+        "label": "Email us",
+        "href": "mailto:info@seedpeers.net",
+        "value": "info@seedpeers.net"
+      },
+      {
+        "icon": "satellite",
+        "label": "Headquarters",
+        "href": "#",
+        "value": "Rome, Italy"
+      }
+    ],
+    "form": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "locationLabel": "Location",
+      "locationPlaceholder": "Select country...",
+      "diyLabel": "Build or buy your own micro-greenhouse?",
+      "diyPlaceholder": "Select option...",
+      "diyOptions": [
+        { "label": "DIY (Build it)", "value": "DIY" },
+        { "label": "BUY (Pre-built)", "value": "BUY" }
+      ],
+      "payLabel": "Would you support us? (€/month)",
+      "payPlaceholder": "Select option...",
+      "payOptions": [
+        { "label": "No", "value": "no" },
+        { "label": "1 €", "value": "1" },
+        { "label": "5 €", "value": "5" },
+        { "label": "10 €", "value": "10" },
+        { "label": "More", "value": "more" }
+      ],
+      "messageLabel": "Message",
+      "messagePlaceholder": "Share your feedback, suggestions, or thoughts with us!",
+      "cta": "Send Message",
+      "privacyText": "By submitting you agree to our",
+      "privacyLinkText": "Privacy Policy",
+      "sending": "Sending...",
+      "sent": "Message sent!",
+      "error": "Error. Try again."
+    }
+  },
+  "footer": {
+    "description": "Together we cultivate the future.",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "rights": "All rights reserved."
+  },
+  "privacy": {
+    "metaTitle": "Privacy Policy — SeedPeers",
+    "metaDescription": "How SeedPeers collects, uses, and protects your personal information.",
+    "title": "Privacy Policy",
+    "updatedLabel": "Last updated:",
+    "updated": "April 7, 2026",
+    "updatedIso": "2026-04-07",
+    "notice": "This page is <strong>sample copy</strong> for a starter template. Replace it with your real policy and have it reviewed by qualified legal counsel before publishing.",
+    "sections": [
+      {
+        "id": "legal-intro",
+        "title": "Introduction",
+        "text": "SeedPeers (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) respects your privacy. This policy describes how we handle information when you use our website and services (the &quot;Services&quot;).",
+        "list": []
+      },
+      {
+        "id": "legal-collect",
+        "title": "Information we collect",
+        "text": "We may collect:",
+        "list": [
+          "<strong>Account data</strong> — such as name, email, and organization when you register or contact us.",
+          "<strong>Usage data</strong> — such as pages visited, approximate location (derived from IP), device type, and timestamps.",
+          "<strong>Technical data</strong> — such as browser type, cookies, and similar technologies as described below."
+        ]
+      },
+      {
+        "id": "legal-use",
+        "title": "How we use information",
+        "text": "We use collected information to:",
+        "list": [
+          "Provide, operate, and improve the Services;",
+          "Communicate with you about updates, security, and support;",
+          "Analyze usage in aggregated or de-identified form;",
+          "Comply with law and protect rights, safety, and security."
+        ]
+      },
+      {
+        "id": "legal-cookies",
+        "title": "Cookies and similar technologies",
+        "text": "We and our partners may use cookies, local storage, and similar technologies for essential operation, preferences (such as theme), analytics, and marketing where permitted. You can control cookies through your browser settings.",
+        "list": []
+      },
+      {
+        "id": "legal-sharing",
+        "title": "Sharing and subprocessors",
+        "text": "We may share information with service providers who assist us (e.g. hosting, analytics, email delivery), subject to contracts that limit use to providing services on our behalf. We may also disclose information if required by law or to protect users and the public.",
+        "list": []
+      },
+      {
+        "id": "legal-rights",
+        "title": "Your rights and choices",
+        "text": "Depending on where you live, you may have rights to access, correct, delete, or export personal data, or to object to certain processing. Contact us to exercise these rights. You may also unsubscribe from marketing emails using the link in those messages.",
+        "list": []
+      },
+      {
+        "id": "legal-retention",
+        "title": "Retention",
+        "text": "We retain information only as long as necessary for the purposes above, unless a longer period is required by law.",
+        "list": []
+      },
+      {
+        "id": "legal-changes",
+        "title": "Changes to this policy",
+        "text": "We may update this policy from time to time. We will post the new version on this page and adjust the &quot;Last updated&quot; date.",
+        "list": []
+      },
+      {
+        "id": "legal-contact",
+        "title": "Contact",
+        "text": "Questions about this policy: use the contact options on our website or reach your account representative.",
+        "list": []
+      }
+    ]
+  },
+  "notFound": {
+    "metaTitle": "Page not found — SeedPeers",
+    "metaDescription": "The page you are looking for does not exist or was moved.",
+    "heading": "This page is off the map",
+    "text": "Check the URL or head back to the homepage to keep exploring SeedPeers.",
+    "cta": "Back to home"
+  }
+}

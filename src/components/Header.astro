@@ -1,35 +1,36 @@
 ---
 import '../styles/globals.css'
-import { getLangConfig } from '../utils/i18n'
+import { site } from '../site'
+import { localizeUrl as localizePath, type Translations } from '../i18n'
 import LanguageSwitch from './LanguageSwitch.astro'
 import Icon from './Icon.astro'
 import ThemeSwitch from './ThemeSwitch.astro'
-import { Image } from 'astro:assets'
-import logoImage from '../images/logo.png'
 
-const siteConfig = getLangConfig(Astro.currentLocale)
-const { brand, nav } = siteConfig
+interface Props {
+  t: Translations
+}
 
-const homeUrl = Astro.currentLocale === 'en' ? '/en' : '/'
-const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/en' || Astro.url.pathname === '/en/';
+const { t } = Astro.props
+const { nav } = t
+
+const homeUrl = localizePath(t.lang)
+const isHome = Astro.url.pathname.replace(/\/$/, '') === homeUrl.replace(/\/$/, '');
 
 function localizeUrl(url: string) {
   if (url.startsWith('#')) {
     if (isHome) return url;
-    const prefix = Astro.currentLocale === 'en' ? '/en' : '';
-    return `${prefix}${url}`;
+    return `${homeUrl}${url}`;
   }
   return url;
 }
 
-const toggleMenuLabel = Astro.currentLocale === 'it' ? 'Attiva/disattiva menu' : 'Toggle menu'
+const toggleMenuLabel = t.ui.toggleMenu
 ---
 
 <header class="ac-header" data-header>
   <div class="container ac-header__inner">
     <a href={homeUrl} class="ac-header__logo">
-      <!-- <Image src={logoImage} alt={brand.name} width={32} height={32} class="ac-header__logo-img" /> -->
-      <span class="gradient-text">{brand.name}</span>
+      <span class="gradient-text">{site.name}</span>
     </a>
 
     <nav class="ac-header__nav" data-nav>
@@ -41,7 +42,7 @@ const toggleMenuLabel = Astro.currentLocale === 'it' ? 'Attiva/disattiva menu' :
     </nav>
 
     <div class="ac-header__actions">
-      <LanguageSwitch />
+      <LanguageSwitch t={t} />
       <div class="ac-header__theme">
         <ThemeSwitch />
       </div>
@@ -66,7 +67,7 @@ const toggleMenuLabel = Astro.currentLocale === 'it' ? 'Attiva/disattiva menu' :
         ))}
       </div>
       <div class="ac-header__mobile-theme">
-        <LanguageSwitch />
+        <LanguageSwitch t={t} />
         <ThemeSwitch />
       </div>
       <a href={localizeUrl(nav.cta.href)} class="ac-header__mobile-cta">
@@ -108,10 +109,6 @@ const toggleMenuLabel = Astro.currentLocale === 'it' ? 'Attiva/disattiva menu' :
     font-weight: var(--ac-font-extrabold);
     text-decoration: none;
     letter-spacing: -0.02em;
-  }
-
-  .ac-header__logo-img {
-    object-fit: contain;
   }
 
   .ac-header__nav {

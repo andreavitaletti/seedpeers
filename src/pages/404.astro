@@ -1,30 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Button from '../components/Button.astro'
-import { getLangConfig } from '../utils/i18n'
-const siteConfig = getLangConfig(Astro.currentLocale)
-const isIt = Astro.currentLocale === 'it'
-const t = {
-  title: isIt ? `Pagina non trovata — ${siteConfig.brand.name}` : `Page not found — ${siteConfig.brand.name}`,
-  description: isIt ? 'La pagina che stai cercando non esiste o è stata spostata.' : 'The page you are looking for does not exist or was moved.',
-  heading: isIt ? 'Questa pagina non esiste' : 'This page is off the map',
-  text: isIt ? `Controlla l'URL o torna alla home page per continuare a esplorare ${siteConfig.brand.name}.` : `Check the URL or head back to the homepage to keep exploring ${siteConfig.brand.name}.`,
-  btnLabel: isIt ? 'Torna alla home' : 'Back to home',
-  btnHref: isIt ? '/' : '/en'
-}
+import { localizeUrl } from '../i18n'
+import t from '../i18n/it.json'
+
+const nf = t.notFound
 ---
 
 <Layout
-  title={t.title}
-  description={t.description}
+  t={t}
+  title={nf.metaTitle}
+  description={nf.metaDescription}
 >
   <section class="ac-not-found">
     <p class="ac-not-found__eyebrow">404</p>
-    <h1 class="ac-not-found__title">{t.heading}</h1>
+    <h1 class="ac-not-found__title">{nf.heading}</h1>
     <p class="ac-not-found__text">
-      {t.text}
+      {nf.text}
     </p>
-    <Button href={t.btnHref} label={t.btnLabel} variant="primary" icon="arrow-right" />
+    <Button href={localizeUrl(t.lang)} label={nf.cta} variant="primary" icon="arrow-right" />
   </section>
 </Layout>
 

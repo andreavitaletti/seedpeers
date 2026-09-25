@@ -1,8 +1,8 @@
 {
-  "name": "astro-saas-starter",
+  "name": "seedpeers",
   "type": "module",
   "version": "1.0.0",
-  "description": "A premium SaaS landing page template built with Astro",
+  "description": "SeedPeers website: bilingual (IT/EN) Astro landing page",
   "author": "Denis Ventura",
   "scripts": {
     "dev": "astro dev",
@@ -14,7 +14,6 @@
     "@astrojs/check": "^0.9.8",
     "@astrojs/sitemap": "^3.7.2",
     "astro": "^6.1.4",
-    "typescript": "^5.5.3",
-    "zod": "^4.3.6"
+    "typescript": "^5.5.3"
   }
 }

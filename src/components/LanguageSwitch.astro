@@ -1,21 +1,29 @@
 ---
-const isIt = Astro.currentLocale === 'it';
+import { defaultLocale, localizeUrl, type Translations } from '../i18n'
+
+interface Props {
+  t: Translations
+}
+
+const { t } = Astro.props
+// Same page in the other locale: strip the current prefix, then add the other one
 const currentPath = Astro.url.pathname;
-const toggleUrl = isIt
-  ? `/en${currentPath}`
-  : currentPath.replace(/^\/en(\/|$)/, '/$1');
+const basePath = t.lang === defaultLocale
+  ? currentPath
+  : currentPath.replace(new RegExp(`^/${t.lang}(/|$)`), '/$1');
+const toggleUrl = localizeUrl(t.otherLang, basePath);
 
 // Normalize URLs to remove double slashes
 const normalizedToggleUrl = toggleUrl.replace(/\/+/g, '/');
 ---
 
-<a href={normalizedToggleUrl} class="ac-lang-switch" aria-label="Switch language">
+<a href={normalizedToggleUrl} class="ac-lang-switch" aria-label={t.ui.switchLanguage}>
   <svg class="ac-lang-switch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <circle cx="12" cy="12" r="10"></circle>
     <line x1="2" y1="12" x2="22" y2="12"></line>
     <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
   </svg>
-  <span class="ac-lang-switch-label">{isIt ? 'EN' : 'IT'}</span>
+  <span class="ac-lang-switch-label">{t.otherLangLabel}</span>
 </a>
 
 <style>

@@ -1,0 +1,122 @@
+---
+import type { Translations } from '../i18n'
+
+interface Props {
+  t: Translations
+}
+
+const { t } = Astro.props
+const p = t.privacy
+---
+
+<article class="ac-legal">
+  <header class="ac-legal__header">
+    <h1 class="ac-legal__title">{p.title}</h1>
+    <p class="ac-legal__meta">
+      {p.updatedLabel} <time datetime={p.updatedIso}>{p.updated}</time>
+    </p>
+  </header>
+
+  <div class="ac-legal__body">
+    <p class="ac-legal__notice" set:html={p.notice} />
+
+    {p.sections.map((section) => (
+      <section class="ac-legal__section" aria-labelledby={section.id}>
+        <h2 id={section.id}>{section.title}</h2>
+        <p set:html={section.text} />
+        {section.list.length > 0 && (
+          <ul>
+            {section.list.map((item) => <li set:html={item} />)}
+          </ul>
+        )}
+      </section>
+    ))}
+  </div>
+</article>
+
+<style>
+  .ac-legal {
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: var(--ac-spacing-12) var(--ac-container-padding) var(--ac-spacing-24);
+  }
+
+  .ac-legal__header {
+    margin-bottom: var(--ac-spacing-10);
+    padding-bottom: var(--ac-spacing-8);
+    border-bottom: var(--ac-border) solid var(--ac-border-color);
+  }
+
+  .ac-legal__title {
+    font-size: var(--ac-text-4xl);
+    font-weight: var(--ac-font-bold);
+    line-height: var(--ac-leading-tight);
+    color: var(--ac-text);
+    margin: 0 0 var(--ac-spacing-3);
+  }
+
+  .ac-legal__meta {
+    margin: 0;
+    font-size: var(--ac-text-sm);
+    color: var(--ac-text-muted);
+  }
+
+  .ac-legal__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ac-spacing-10);
+    font-size: var(--ac-text-md);
+    line-height: var(--ac-leading-relaxed);
+    color: var(--ac-text);
+  }
+
+  .ac-legal__notice {
+    margin: 0;
+    padding: var(--ac-spacing-4) var(--ac-spacing-5);
+    border-radius: var(--ac-rounded-xl);
+    background: var(--ac-bg-subtle);
+    border: var(--ac-border) solid var(--ac-border-color);
+    font-size: var(--ac-text-sm);
+    color: var(--ac-text-muted);
+  }
+
+  .ac-legal__section h2 {
+    font-size: var(--ac-text-xl);
+    font-weight: var(--ac-font-bold);
+    color: var(--ac-text);
+    margin: 0 0 var(--ac-spacing-4);
+    line-height: var(--ac-leading-tight);
+  }
+
+  .ac-legal__section p {
+    margin: 0 0 var(--ac-spacing-4);
+  }
+
+  .ac-legal__section p:last-child {
+    margin-bottom: 0;
+  }
+
+  .ac-legal__section ul {
+    margin: 0 0 var(--ac-spacing-4);
+    padding-left: var(--ac-spacing-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--ac-spacing-3);
+    color: var(--ac-text-muted);
+  }
+
+  .ac-legal__section li strong {
+    color: var(--ac-text);
+    font-weight: var(--ac-font-semibold);
+  }
+
+  .ac-legal__section:last-child p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 48rem) {
+    .ac-legal__title {
+      font-size: var(--ac-text-3xl);
+    }
+  }
+</style>

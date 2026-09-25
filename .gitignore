@@ -29,3 +29,7 @@ Thumbs.db
 # Claude Code
 CLAUDE.md
 .claude/
+
+# Private notes (not published)
+documenti/
+todo.md

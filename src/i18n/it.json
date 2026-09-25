@@ -1,0 +1,212 @@
+{
+  "lang": "it",
+  "langLabel": "IT",
+  "otherLang": "en",
+  "otherLangLabel": "EN",
+  "brand": {
+    "tagline": "La conservazione dei semi a portata di tutti"
+  },
+  "ui": {
+    "skipLink": "Vai al contenuto principale",
+    "toggleMenu": "Attiva/disattiva menu",
+    "switchLanguage": "Passa all'inglese"
+  },
+  "nav": {
+    "links": [],
+    "cta": { "label": "Partecipa", "href": "#contact" }
+  },
+  "hero": {
+    "title": "Uno sforzo congiunto\nper preservare i semi",
+    "description": "I semi sono archivi viventi di biodiversità, ma il cambiamento climatico, la perdita di habitat e l’uso non sostenibile del territorio stanno spingendo molte specie vegetali verso l’estinzione. <b>SeedPeers è una rete no-profit peer-to-peer di micro-serre collocate in ambienti indoor </b> come case, scuole e spazi comuni, <b>dove coltiviamo e preserviamo semi di specie vegetali incluse nella <a href=\"https://www.iucnredlist.org/\"><u>Lista Rossa delle Specie Minacciate dell’IUCN</u></a>, insieme ad altre specie localmente minacciate e sottoutilizzate.</b> Il nostro obiettivo è trasformare i cittadini in  agenti attivi della conservazione della biodiversità, attraverso l’apprendimento e la pratica della coltivazione delle piante, della propagazione e della conservazione dei semi. \n<b>Insieme coltiviamo il futuro.</b > ",
+    "primaryCta": { "label": "La micro-serra", "href": "#greenhouse" },
+    "secondaryCta": { "label": "Come funziona", "href": "#howitworks" }
+  },
+  "greenhouse": {
+    "title": "Dove la Funzione Incontra la Forma",
+    "description": "Le micro-serre costituiscono la spina dorsale della rete SeedPeers. Progettate per creare le condizioni ideali per la conservazione e la crescita dei semi, uniscono funzionalità avanzate a un design raffinato e minimalista. Più che semplici dispositivi di coltivazione, sono vetrine viventi di biodiversità, capaci di portare la natura e la bellezza nei nostri spazi quotidiani."
+  },
+  "howItWorks": {
+    "title": "Come funziona",
+    "description": "Scopri com'è facile diventare un membro della comunità SeedPeers",
+    "steps": [
+      {
+        "number": 1,
+        "title": "Ottieni la tua micro-serra",
+        "description": "Acquista o costruisci la tua micro-serra. È un progetto open source/hardware"
+      },
+      {
+        "number": 2,
+        "title": "Unisciti alla rete",
+        "description": "Registra la tua micro-serra ed entra a far parte di una comunità di coltivatori in continua crescita."
+      },
+      {
+        "number": 3,
+        "title": "Ricevi i semi",
+        "description": "Ricevi i tuoi semi, piantali nella tua micro-serra e inizia il tuo percorso di coltivazione. I semi sono distribuiti per aumentare la diversità e la resilienza."
+      },
+      {
+        "number": 4,
+        "title": "Coltiva e Impara",
+        "description": "Coltiva le tue piante, scopri le migliori pratiche e impara dalla comunità."
+      },
+      {
+        "number": 5,
+        "title": "Condividi la conoscenza",
+        "description": "Beneficia dell'esperienza collettiva della rete e aiuta gli altri a crescere condividendo  le tue conoscenze."
+      },
+      {
+        "number": 6,
+        "title": "Condividi il raccolto",
+        "description": "Condividi il raccolto con gli altri membri della rete, arricchendo la biodiversità e la resilienza della rete."
+      }
+    ]
+  },
+  "news": {
+    "badge": "Novità",
+    "title": "Ultime notizie",
+    "description": "Aggiornamenti ed eventi dalla rete SeedPeers",
+    "items": [
+      {
+        "date": "23-25 Ottobre 2026",
+        "title": "SeedPeers a Maker Faire Rome",
+        "description": "Vieni a trovarci al nostro stand: parliamo di micro-serre, conservazione dei semi e biodiversità urbana.",
+        "href": "https://makerfairerome.eu/en/",
+        "ctaLabel": "Scopri di più"
+      }
+    ]
+  },
+  "contact": {
+    "title": "La tua voce conta",
+    "description": "Stiamo costruendo SeedPeers. Lo sviluppo sta procedendo bene, ma siamo ancora all'inizio e il tuo contributo può fare la differenza. \n\n La compilazione di questo modulo è del tutto facoltativa, ma le tue risposte ci aiutano a comprendere le tue esigenze, a dare priorità alle funzionalità e a costruire una piattaforma che serva davvero la comunità. L'unico campo obbligatorio è il tuo indirizzo email per poter rimanere in contatto.\n\n Unisciti a noi, rimani aggiornato e aiutaci a plasmare il futuro.",
+    "channels": [
+      {
+        "icon": "mail",
+        "label": "Scrivici",
+        "href": "mailto:info@seedpeers.net",
+        "value": "info@seedpeers.net"
+      },
+      {
+        "icon": "satellite",
+        "label": "Sede",
+        "href": "#",
+        "value": "Roma, Italy"
+      }
+    ],
+    "form": {
+      "firstName": "Nome",
+      "lastName": "Cognome",
+      "locationLabel": "Dove ti trovi",
+      "locationPlaceholder": "Seleziona paese...",
+      "diyLabel": "Stai pensando di costruire o comprare la serra?",
+      "diyPlaceholder": "Seleziona opzione...",
+      "diyOptions": [
+        { "label": "Fai da te (Costruiscila)", "value": "DIY" },
+        { "label": "Acquista (Già assemblata)", "value": "BUY" }
+      ],
+      "payLabel": "Saresti disposto a sostenerci? (€/mese)",
+      "payPlaceholder": "Seleziona opzione...",
+      "payOptions": [
+        { "label": "No", "value": "no" },
+        { "label": "1 €", "value": "1" },
+        { "label": "5 €", "value": "5" },
+        { "label": "10 €", "value": "10" },
+        { "label": "Di più", "value": "more" }
+      ],
+      "messageLabel": "Messaggio",
+      "messagePlaceholder": "Condividi con noi i tuoi commenti, suggerimenti o pensieri!",
+      "cta": "Invia Messaggio",
+      "privacyText": "Inviando il modulo accetti la nostra",
+      "privacyLinkText": "Informativa sulla Privacy",
+      "sending": "Invio in corso...",
+      "sent": "Messaggio inviato!",
+      "error": "Errore. Riprova."
+    }
+  },
+  "footer": {
+    "description": "Insieme coltiviamo il futuro.",
+    "legal": "Legale",
+    "privacy": "Informativa sulla Privacy",
+    "rights": "Tutti i diritti riservati."
+  },
+  "privacy": {
+    "metaTitle": "Informativa sulla Privacy — SeedPeers",
+    "metaDescription": "Come SeedPeers raccoglie, utilizza e protegge le tue informazioni personali.",
+    "title": "Informativa sulla Privacy",
+    "updatedLabel": "Ultimo aggiornamento:",
+    "updated": "7 Aprile 2026",
+    "updatedIso": "2026-04-07",
+    "notice": "Questa pagina è un <strong>testo di esempio</strong> per un modello iniziale. Sostituiscilo con la tua vera informativa e falla revisionare da un consulente legale qualificato prima della pubblicazione.",
+    "sections": [
+      {
+        "id": "legal-intro",
+        "title": "Introduzione",
+        "text": "SeedPeers (&quot;noi&quot;, &quot;ci&quot; o &quot;nostro&quot;) rispetta la tua privacy. Questa informativa descrive come gestiamo le informazioni quando utilizzi il nostro sito web e i nostri servizi (i &quot;Servizi&quot;).",
+        "list": []
+      },
+      {
+        "id": "legal-collect",
+        "title": "Informazioni che raccogliamo",
+        "text": "Potremmo raccogliere:",
+        "list": [
+          "<strong>Dati dell'account</strong> — come nome, email e organizzazione quando ti registri o ci contatti.",
+          "<strong>Dati di utilizzo</strong> — come pagine visitate, posizione approssimativa (derivata dall'IP), tipo di dispositivo e timestamp.",
+          "<strong>Dati tecnici</strong> — come tipo di browser, cookie e tecnologie simili come descritto di seguito."
+        ]
+      },
+      {
+        "id": "legal-use",
+        "title": "Come utilizziamo le informazioni",
+        "text": "Utilizziamo le informazioni raccolte per:",
+        "list": [
+          "Fornire, gestire e migliorare i Servizi;",
+          "Comunicare con te in merito ad aggiornamenti, sicurezza e supporto;",
+          "Analizzare l'utilizzo in forma aggregata o anonimizzata;",
+          "Rispettare la legge e proteggere diritti, incolumità e sicurezza."
+        ]
+      },
+      {
+        "id": "legal-cookies",
+        "title": "Cookie e tecnologie simili",
+        "text": "Noi e i nostri partner potremmo utilizzare cookie, memoria locale e tecnologie simili per il funzionamento essenziale, le preferenze (come il tema), le analisi e il marketing, laddove consentito. Puoi controllare i cookie attraverso le impostazioni del tuo browser.",
+        "list": []
+      },
+      {
+        "id": "legal-sharing",
+        "title": "Condivisione e subresponsabili",
+        "text": "Potremmo condividere le informazioni con fornitori di servizi che ci assistono (ad es. hosting, analisi, invio di email), soggetti a contratti che limitano l'uso alla fornitura di servizi per nostro conto. Potremmo anche divulgare informazioni se richiesto dalla legge o per proteggere gli utenti e il pubblico.",
+        "list": []
+      },
+      {
+        "id": "legal-rights",
+        "title": "I tuoi diritti e le tuoi scelte",
+        "text": "A seconda di dove vivi, potresti avere il diritto di accedere, correggere, cancellare o esportare i tuoi dati personali, o di opporti a determinati trattamenti. Contattaci per esercitare questi diritti. Puoi anche annullare l'iscrizione alle email di marketing utilizzando il link presente in tali messaggi.",
+        "list": []
+      },
+      {
+        "id": "legal-retention",
+        "title": "Conservazione dei dati",
+        "text": "Conserviamo le informazioni solo per il tempo necessario agli scopi sopra indicati, a meno che non sia richiesto un periodo più lungo dalla legge.",
+        "list": []
+      },
+      {
+        "id": "legal-changes",
+        "title": "Modifiche a questa informativa",
+        "text": "Potremmo aggiornare questa informativa di tanto in tanto. Pubblicheremo la nuova versione su questa pagina e modificheremo la data di &quot;Ultimo aggiornamento&quot;.",
+        "list": []
+      },
+      {
+        "id": "legal-contact",
+        "title": "Contatti",
+        "text": "Domande su questa informativa: utilizza le opzioni di contatto sul nostro sito web o contatta il tuo rappresentante di riferimento.",
+        "list": []
+      }
+    ]
+  },
+  "notFound": {
+    "metaTitle": "Pagina non trovata — SeedPeers",
+    "metaDescription": "La pagina che stai cercando non esiste o è stata spostata.",
+    "heading": "Questa pagina non esiste",
+    "text": "Controlla l'URL o torna alla home page per continuare a esplorare SeedPeers.",
+    "cta": "Torna alla home"
+  }
+}

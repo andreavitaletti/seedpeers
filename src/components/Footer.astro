@@ -1,12 +1,14 @@
 ---
 import '../styles/globals.css'
-import { getLangConfig } from '../utils/i18n'
+import { site } from '../site'
+import { localizeUrl, type Translations } from '../i18n'
 import Icon from './Icon.astro'
-import { Image } from 'astro:assets'
-import logoImage from '../images/logo.png'
 
-const siteConfig = getLangConfig(Astro.currentLocale)
-const { brand, footer } = siteConfig
+interface Props {
+  t: Translations
+}
+
+const { t } = Astro.props
 const year = new Date().getFullYear()
 ---
 
@@ -15,14 +17,13 @@ const year = new Date().getFullYear()
     <div class="ac-footer__grid">
       <!-- Brand column -->
       <div class="ac-footer__brand">
-        <a href={Astro.currentLocale === 'en' ? '/en' : '/'} class="ac-footer__logo">
-          <!-- <Image src={logoImage} alt={brand.name} width={32} height={32} class="ac-footer__logo-img" /> -->
-          <span class="gradient-text">{brand.name}</span>
+        <a href={localizeUrl(t.lang)} class="ac-footer__logo">
+          <span class="gradient-text">{site.name}</span>
         </a>
         <div class="ac-footer__brand-lower">
-          <p class="ac-footer__description">{footer.description}</p>
+          <p class="ac-footer__description">{t.footer.description}</p>
           <div class="ac-footer__socials">
-            {footer.socials.map((social) => (
+            {site.socials.map((social) => (
               <a href={social.href} class="ac-footer__social" aria-label={social.icon} target="_blank" rel="noopener">
                 <Icon name={social.icon} size={20} />
               </a>
@@ -31,26 +32,11 @@ const year = new Date().getFullYear()
         </div>
       </div>
 
-      <!-- Link columns -->
-      {footer.columns.map((col) => (
-        <div class="ac-footer__column">
-          <div class="ac-footer__column-inner">
-            <h4 class="ac-footer__column-title">{col.title}</h4>
-            <ul class="ac-footer__links">
-            {col.links.map((link) => (
-              <li>
-                <a href={link.href} class="ac-footer__link">{link.label}</a>
-              </li>
-            ))}
-            </ul>
-          </div>
-        </div>
-      ))}
       <div class="ac-footer__column">
         <div class="ac-footer__column-inner">
-          <h4 class="ac-footer__column-title">{Astro.currentLocale === 'it' ? 'Legale' : 'Legal'}</h4>
-          <a href={Astro.currentLocale === 'en' ? '/en/privacy' : '/privacy'} class="ac-footer__link">
-            {Astro.currentLocale === 'it' ? 'Informativa sulla Privacy' : 'Privacy Policy'}
+          <h4 class="ac-footer__column-title">{t.footer.legal}</h4>
+          <a href={localizeUrl(t.lang, '/privacy')} class="ac-footer__link">
+            {t.footer.privacy}
           </a>
         </div>
       </div>
@@ -58,7 +44,7 @@ const year = new Date().getFullYear()
 
     <div class="ac-footer__bottom">
       <p class="ac-footer__copyright">
-        &copy; {year} {brand.name}. {Astro.currentLocale === 'it' ? 'Tutti i diritti riservati.' : 'All rights reserved.'}
+        &copy; {year} {site.name}. {t.footer.rights}
       </p>
     </div>
   </div>
@@ -105,10 +91,6 @@ const year = new Date().getFullYear()
     text-decoration: none;
   }
 
-  .ac-footer__logo-img {
-    object-fit: contain;
-  }
-
   .ac-footer__description {
     font-size: var(--ac-text-sm);
     color: var(--ac-text-muted);
@@ -149,14 +131,6 @@ const year = new Date().getFullYear()
     font-size: var(--ac-text-sm);
     font-weight: var(--ac-font-semibold);
     color: var(--ac-text);
-  }
-
-  .ac-footer__links {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--ac-spacing-3);
   }
 
   .ac-footer__link {

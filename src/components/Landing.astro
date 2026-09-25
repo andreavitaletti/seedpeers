@@ -1,0 +1,20 @@
+---
+import Hero from './Hero.astro'
+import Greenhouse from './Greenhouse.astro'
+import HowItWorks from './HowItWorks.astro'
+import News from './News.astro'
+import ContactForm from './ContactForm.astro'
+import type { Translations } from '../i18n'
+
+interface Props {
+  t: Translations
+}
+
+const { t } = Astro.props
+---
+
+<Hero t={t} />
+<Greenhouse t={t} />
+<HowItWorks t={t} />
+<News t={t} />
+<ContactForm t={t} />

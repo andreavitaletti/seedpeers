@@ -1,18 +1,23 @@
 ---
 import '../styles/globals.css'
-import { getLangConfig } from '../utils/i18n'
+import type { Translations } from '../i18n'
 import LandingSection from './LandingSection.astro'
 import { Image } from 'astro:assets'
+import greenhouseImg from '../images/greenhouse.png'
 
-const siteConfig = getLangConfig(Astro.currentLocale)
-const greenhouse = siteConfig.greenhouse as any
+interface Props {
+  t: Translations
+}
+
+const { t } = Astro.props
+const greenhouse = t.greenhouse as any
 ---
 
 <LandingSection id="greenhouse" class="section">
   <div class="ac-greenhouse__layout">
     <div class="ac-greenhouse__image-wrap animate-fade-in-up">
       <Image
-        src={greenhouse.image}
+        src={greenhouseImg}
         alt={greenhouse.title}
         class="ac-greenhouse__image"
       />

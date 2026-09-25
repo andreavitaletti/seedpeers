@@ -1,12 +1,12 @@
 {
   "extends": "astro/tsconfigs/strict",
+  "exclude": ["dist"],
   "compilerOptions": {
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
       "@components/*": ["src/components/*"],
-      "@config/*": ["src/config/*"],
       "@layouts/*": ["src/layouts/*"],
       "@styles/*": ["src/styles/*"]
     }

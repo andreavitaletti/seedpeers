@@ -1,6 +1,7 @@
 ---
 import '../styles/globals.css'
-import { getLangConfig } from '../utils/i18n'
+import { site } from '../site'
+import { localizeUrl, type Translations } from '../i18n'
 import LandingSection from './LandingSection.astro'
 import ContactIntro from './ContactIntro.astro'
 import Input from './Input.astro'
@@ -9,50 +10,24 @@ import Select from './Select.astro'
 import Button from './Button.astro'
 import { countries } from '../utils/countries'
 
-const siteConfig = getLangConfig(Astro.currentLocale)
-const { contact, forms } = siteConfig
-const rawContactAction = forms?.contactAction?.trim() ?? ''
-const contactNetlify = forms?.contactNetlify ?? false
-const hasGoogleForm = !!forms?.googleForm?.actionUrl
-const contactFormAction =
-  rawContactAction.length > 0 ? rawContactAction : contactNetlify ? '/' : undefined
-const contactDemoOnly = !rawContactAction && !contactNetlify && !hasGoogleForm
-
-const isIt = Astro.currentLocale === 'it'
-
-const t = {
-  firstName: isIt ? 'Nome' : 'First name',
-  lastName: isIt ? 'Cognome' : 'Last name',
-  locationPlaceholder: isIt ? 'Seleziona paese...' : 'Select country...',
-  diyPlaceholder: isIt ? 'Seleziona opzione...' : 'Select option...',
-  payPlaceholder: isIt ? 'Seleziona opzione...' : 'Select option...',
-  diyOptions: [
-    { label: isIt ? 'Fai da te (Costruiscila)' : 'DIY (Build it)', value: 'DIY' },
-    { label: isIt ? 'Acquista (Già assemblata)' : 'BUY (Pre-built)', value: 'BUY' }
-  ],
-  payOptions: [
-    { label: isIt ? 'No' : 'No', value: 'no' },
-    { label: '1 €', value: '1' },
-    { label: '5 €', value: '5' },
-    { label: '10 €', value: '10' },
-    { label: isIt ? 'Di più' : 'More', value: 'more' }
-  ],
-  messageLabel: isIt ? 'Messaggio' : 'Message',
-  messagePlaceholder: isIt ? 'Condividi con noi i tuoi commenti, suggerimenti o pensieri!' : 'Share your feedback, suggestions, or thoughts with us!',
-  privacyText: isIt ? 'Inviando il modulo accetti la nostra' : 'By submitting you agree to our',
-  privacyLinkText: isIt ? 'Informativa sulla Privacy' : 'Privacy Policy',
-  privacyHref: isIt ? '/privacy' : '/en/privacy',
-  sending: isIt ? 'Invio in corso...' : 'Sending...',
-  sent: isIt ? 'Messaggio inviato!' : 'Message sent!',
-  error: isIt ? 'Errore. Riprova.' : 'Error. Try again.'
+interface Props {
+  t: Translations
 }
+
+const { t } = Astro.props
+const { contact } = t
+const { googleForm } = site
+// Without a Google Form URL the form only shows a fake "sent" state
+const contactDemoOnly = !googleForm.actionUrl
+
+const f = t.contact.form
+const privacyHref = localizeUrl(t.lang, '/privacy')
 ---
 
 <LandingSection id="contact" class="section ac-section-band--subtle">
   <div class="ac-contact">
     <div class="ac-contact__layout animate-fade-in-up">
     <ContactIntro
-      badge={contact.badge}
       title={contact.title}
       description={contact.description}
       channels={contact.channels}
@@ -63,22 +38,17 @@ const t = {
         class="ac-contact__form"
         data-contact-form
         {...contactDemoOnly ? { 'data-demo-only': '' } : {}}
-        action={contactFormAction}
-        method={contactFormAction !== undefined || contactNetlify ? 'POST' : undefined}
-        {...contactNetlify
-          ? { 'data-netlify': 'true', name: 'contact' }
-          : {}}
-        data-google-form-url={forms?.googleForm?.actionUrl}
-        data-google-field-first-name={forms?.googleForm?.fields?.firstName}
-        data-google-field-last-name={forms?.googleForm?.fields?.lastName}
-        data-google-field-email={forms?.googleForm?.fields?.email}
-        data-google-field-diy={forms?.googleForm?.fields?.diy}
-        data-google-field-pay={forms?.googleForm?.fields?.pay}
-        data-google-field-location={forms?.googleForm?.fields?.location}
-        data-google-field-message={forms?.googleForm?.fields?.message}
-        data-msg-sending={t.sending}
-        data-msg-sent={t.sent}
-        data-msg-error={t.error}
+        data-google-form-url={googleForm.actionUrl}
+        data-google-field-first-name={googleForm.fields.firstName}
+        data-google-field-last-name={googleForm.fields.lastName}
+        data-google-field-email={googleForm.fields.email}
+        data-google-field-diy={googleForm.fields.diy}
+        data-google-field-pay={googleForm.fields.pay}
+        data-google-field-location={googleForm.fields.location}
+        data-google-field-message={googleForm.fields.message}
+        data-msg-sending={f.sending}
+        data-msg-sent={f.sent}
+        data-msg-error={f.error}
       >
 
          <Input
@@ -90,43 +60,43 @@ const t = {
         />
 
         <div class="ac-contact__row">
-          <Input label={t.firstName} placeholder="Jane" name="firstName" />
-          <Input label={t.lastName} placeholder="Doe" name="lastName" />
+          <Input label={f.firstName} placeholder="Jane" name="firstName" />
+          <Input label={f.lastName} placeholder="Doe" name="lastName" />
         </div>
 
         <Select
-          label={contact.locationLabel || "Location"}
+          label={f.locationLabel}
           name="location"
-          placeholder={t.locationPlaceholder}
+          placeholder={f.locationPlaceholder}
           options={countries}
         />
 
         <div class="ac-contact__row">
           <Select
-            label={contact.diyLabel || "Build or buy?"}
+            label={f.diyLabel}
             name="diy"
-            placeholder={t.diyPlaceholder}
-            options={t.diyOptions}
+            placeholder={f.diyPlaceholder}
+            options={f.diyOptions}
           />
           <Select
-            label={contact.payLabel || "Willing to pay? (€/month)"}
+            label={f.payLabel}
             name="pay"
-            placeholder={t.payPlaceholder}
-            options={t.payOptions}
+            placeholder={f.payPlaceholder}
+            options={f.payOptions}
           />
         </div>
 
         <Textarea
-          label={t.messageLabel}
-          placeholder={t.messagePlaceholder}
+          label={f.messageLabel}
+          placeholder={f.messagePlaceholder}
           name="message"
           rows={5}
         />
 
-        <Button type="submit" label={contact.cta} variant="primary" />
+        <Button type="submit" label={f.cta} variant="primary" />
 
         <p class="ac-contact__privacy">
-          {t.privacyText} <a href={t.privacyHref}>{t.privacyLinkText}</a>.
+          {f.privacyText} <a href={privacyHref}>{f.privacyLinkText}</a>.
         </p>
       </form>
     </div>

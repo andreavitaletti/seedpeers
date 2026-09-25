@@ -2,44 +2,44 @@
 import '../styles/globals.css'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
-import { getLangConfig } from '../utils/i18n'
+import { site } from '../site'
+import type { Translations } from '../i18n'
 import { THEME_STORAGE_KEY } from '../utils/theme-storage'
 
 interface Props {
+  /** Translations for the page locale (src/i18n/<lang>.json) */
+  t: Translations
   title?: string
   description?: string
-  /** Absolute or site-relative image for og:image (optional; defaults to seo.defaultOgImage) */
+  /** Absolute or site-relative image for og:image (optional; defaults to site.ogImage) */
   ogImage?: string
 }
 
-const siteConfig = getLangConfig(Astro.currentLocale)
-
 const {
-  title = `${siteConfig.brand.name} — ${siteConfig.brand.tagline}`,
-  description = siteConfig.hero.description,
+  t,
+  title = `${site.name} — ${t.brand.tagline}`,
+  description = t.hero.description.replace(/<[^>]*>/g, ''),
   ogImage: ogImageProp,
 } = Astro.props
 
-const { brand, seo } = siteConfig
-const canonicalUrl = new URL(Astro.url.pathname, seo.siteUrl).href
-const defaultImagePath = seo.defaultOgImage ?? '/favicon.svg'
+const canonicalUrl = new URL(Astro.url.pathname, site.url).href
 function absoluteUrl(pathOrUrl: string): string {
-  return pathOrUrl.startsWith('http') ? pathOrUrl : new URL(pathOrUrl, seo.siteUrl).href
+  return pathOrUrl.startsWith('http') ? pathOrUrl : new URL(pathOrUrl, site.url).href
 }
-const ogImageUrl = ogImageProp ? absoluteUrl(ogImageProp) : absoluteUrl(defaultImagePath)
+const ogImageUrl = absoluteUrl(ogImageProp ?? site.ogImage)
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: brand.name,
+  name: site.name,
   description,
-  url: seo.siteUrl,
+  url: site.url,
   applicationCategory: 'BusinessApplication',
 }
 ---
 
 <!doctype html>
-<html lang={seo.lang} data-theme="light">
+<html lang={t.lang} data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -54,17 +54,12 @@ const jsonLd = {
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={ogImageUrl} />
-    <meta property="og:locale" content={seo.lang} />
+    <meta property="og:locale" content={t.lang} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
-    {
-      seo.twitterHandle ? (
-        <meta name="twitter:site" content={seo.twitterHandle} />
-      ) : null
-    }
 
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
 
@@ -72,7 +67,7 @@ const jsonLd = {
       <script
         is:inline
         defer
-        src={siteConfig.umami?.src ?? 'https://cloud.umami.is/script.js'}
+        src={site.umamiSrc}
         data-website-id={import.meta.env.PUBLIC_UMAMI_WEBSITE_ID}
       ></script>
     )}
@@ -109,13 +104,13 @@ const jsonLd = {
 
   <body>
     <a class="ac-skip-link" href="#main-content">
-      {Astro.currentLocale === 'it' ? 'Vai al contenuto principale' : 'Skip to main content'}
+      {t.ui.skipLink}
     </a>
-    <Header />
+    <Header t={t} />
     <main id="main-content">
       <slot />
     </main>
-    <Footer />
+    <Footer t={t} />
   </body>
 </html>
 
