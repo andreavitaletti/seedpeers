@@ -1,0 +1,129 @@
+---
+import '../styles/globals.css'
+import type { ImageMetadata } from 'astro'
+import { Image } from 'astro:assets'
+import type { Translations } from '../i18n'
+import LandingSection from './LandingSection.astro'
+import SectionHeader from './SectionHeader.astro'
+import { revealStaggerTokens } from '../utils/reveal'
+
+interface Props {
+  t: Translations
+}
+
+const { t } = Astro.props
+const team = t.team as any
+
+// Each member's `photo` is a file name in src/images (e.g. "Andrea.png")
+const images = import.meta.glob<{ default: ImageMetadata }>('../images/*.{png,jpg,jpeg,webp}', { eager: true })
+function photoFor(file: string) {
+  const image = images[`../images/${file}`]
+  if (!image) throw new Error(`Team photo not found: src/images/${file}`)
+  return image.default
+}
+---
+
+<LandingSection id="team" class="section">
+  <div class="ac-team">
+    <SectionHeader
+      badge={team.badge}
+      title={team.title}
+      description={team.description}
+    />
+
+    <div class="ac-team__grid">
+      {team.members.map((member: any, i: number) => (
+        <article class:list={['ac-team__member', ...revealStaggerTokens(i)]}>
+          <Image
+            src={photoFor(member.photo)}
+            alt={member.name}
+            width={160}
+            densities={[1, 2]}
+            class="ac-team__photo"
+          />
+          <h3 class="ac-team__name">{member.name}</h3>
+          <p class="ac-team__role">{member.role}</p>
+          {member.bio && <p class="ac-team__bio" set:html={member.bio} />}
+        </article>
+      ))}
+    </div>
+  </div>
+</LandingSection>
+
+<style>
+  .ac-team {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ac-spacing-16);
+  }
+
+  .ac-team__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--ac-spacing-8);
+  }
+
+  .ac-team__member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--ac-spacing-2);
+  }
+
+  .ac-team__photo {
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+    border-radius: var(--ac-rounded-full);
+    margin-bottom: var(--ac-spacing-4);
+    box-shadow: 0 0.5rem 2rem rgba(var(--ac-primary), 0.15);
+    transition: var(--ac-transition);
+  }
+
+  .ac-team__member:hover .ac-team__photo {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.75rem 2.5rem rgba(var(--ac-primary), 0.25);
+  }
+
+  .ac-team__name {
+    font-size: var(--ac-text-lg);
+    font-weight: var(--ac-font-bold);
+    color: var(--ac-text);
+    margin: 0;
+  }
+
+  .ac-team__role {
+    font-size: var(--ac-text-sm);
+    font-weight: var(--ac-font-semibold);
+    color: rgb(var(--ac-primary));
+    margin: 0;
+  }
+
+  .ac-team__bio {
+    font-size: var(--ac-text-sm);
+    color: var(--ac-text-muted);
+    line-height: var(--ac-leading-relaxed);
+    margin: 0;
+    max-width: 16rem;
+  }
+
+  .ac-team__bio :global(a) {
+    color: rgb(var(--ac-primary));
+    text-decoration: underline;
+  }
+
+  @media (max-width: 64rem) {
+    .ac-team__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      row-gap: var(--ac-spacing-12);
+    }
+  }
+
+  @media (max-width: 30rem) {
+    .ac-team__photo {
+      width: 8rem;
+      height: 8rem;
+    }
+  }
+</style>

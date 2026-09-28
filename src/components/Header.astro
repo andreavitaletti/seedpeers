@@ -5,6 +5,8 @@ import { localizeUrl as localizePath, type Translations } from '../i18n'
 import LanguageSwitch from './LanguageSwitch.astro'
 import Icon from './Icon.astro'
 import ThemeSwitch from './ThemeSwitch.astro'
+import { Image } from 'astro:assets'
+import logo from '../images/Logo_seedpeers.png'
 
 interface Props {
   t: Translations
@@ -30,7 +32,7 @@ const toggleMenuLabel = t.ui.toggleMenu
 <header class="ac-header" data-header>
   <div class="container ac-header__inner">
     <a href={homeUrl} class="ac-header__logo">
-      <span class="gradient-text">{site.name}</span>
+      <Image src={logo} alt={site.name} height={36} densities={[1, 2]} class="ac-header__logo-img" loading="eager" />
     </a>
 
     <nav class="ac-header__nav" data-nav>
@@ -109,6 +111,16 @@ const toggleMenuLabel = t.ui.toggleMenu
     font-weight: var(--ac-font-extrabold);
     text-decoration: none;
     letter-spacing: -0.02em;
+  }
+
+  .ac-header__logo-img {
+    height: 2.25rem;
+    width: auto;
+  }
+
+  /* The logo is black on transparent: turn it white in dark mode */
+  :global([data-theme='dark']) .ac-header__logo-img {
+    filter: invert(1);
   }
 
   .ac-header__nav {

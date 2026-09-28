@@ -78,6 +78,33 @@
       }
     ]
   },
+  "team": {
+    "badge": "Team",
+    "title": "The team",
+    "description": "The people growing SeedPeers",
+    "members": [
+      {
+        "photo": "Andrea.png",
+        "name": "Andrea Vitaletti",
+        "role": "The Computer Scientist"
+      },
+      {
+        "photo": "Giuseppe.png",
+        "name": "Giuseppe",
+        "role": "The Biologist"
+      },
+      {
+        "photo": "Giovanni.png",
+        "name": "Giovanni",
+        "role": "The Designer"
+      },
+      {
+        "photo": "Sabrina.png",
+        "name": "Sabrina",
+        "role": "The Designer"
+      }
+    ]
+  },
   "contact": {
     "title": "Your voice matters",
     "description": "We’re building SeedPeers. Progress is going well, but we’re still early and your input can make a real difference. \n\n Completing this form is entirely optional, but your input helps us understand your needs, prioritize features, and build a platform that truly serves the community. The only required field is your email address so we can stay in touch.\n\n Join us, stay updated, and help shape what comes next.",

@@ -12,6 +12,7 @@ Static output, no JS framework, light/dark theme.
 | Which sections appear on the home page, and their order | `src/components/Landing.astro`           |
 | The look of a single section                        | `src/components/<Section>.astro` (markup + scoped CSS) |
 | Colors, fonts, spacing (design tokens `--ac-*`)     | `src/styles/globals.css`                    |
+| Header logo (black on transparent, auto-inverted in dark mode) | `src/images/Logo_seedpeers.png` |
 | Greenhouse picture                                  | `src/images/greenhouse.png`                 |
 | Favicon, robots.txt, custom domain                  | `public/`                                   |
 
@@ -21,6 +22,7 @@ Text fields such as `hero.description`, `news.items[].description` and the priva
 ### Common tasks
 
 - **Add a news item**: append an object to `news.items` in both JSON files (`date`, `title`, `description`); put links inside `description` as `<a href=\"…\" target=\"_blank\" rel=\"noopener\">…</a>`.
+- **Add a team member**: put a square photo in `src/images/` and add an entry to `team.members` in both JSON files (`photo` is the file name, e.g. `"Andrea.png"`, plus `name`, `role` and an optional `bio`).
 - **Hide a section**: remove (or comment out) its line in `src/components/Landing.astro`.
 - **Change the contact form destination**: update `googleForm.actionUrl` and the `entry.XXXX` IDs in `src/site.ts` (take them from the Google Form's pre-filled link). Leave `actionUrl` empty to make the form a no-op demo.
 - **Enable Umami analytics**: set `PUBLIC_UMAMI_WEBSITE_ID` in a local `.env` file, and as an `env:` entry of the build step in `.github/workflows/deploy.yml` for production.
@@ -37,7 +39,7 @@ src/
 ├── layouts/
 │   └── Layout.astro     ← HTML shell, SEO meta, theme init, header + footer
 ├── components/
-│   ├── Landing.astro    ← home page: Hero, Greenhouse, HowItWorks, News, ContactForm
+│   ├── Landing.astro    ← home page: Hero, Greenhouse, HowItWorks, News, Team, ContactForm
 │   ├── PrivacyPolicy.astro
 │   └── …                ← sections and UI building blocks, each receives `t` (translations)
 ├── pages/
