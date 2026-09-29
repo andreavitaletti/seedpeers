@@ -86,22 +86,22 @@
       {
         "photo": "Andrea.png",
         "name": "Andrea Vitaletti",
-        "role": "The Computer Scientist"
-      },
-      {
-        "photo": "Giuseppe.png",
-        "name": "Giuseppe",
-        "role": "The Biologist"
+        "role": "Computer Scientist"
       },
       {
         "photo": "Giovanni.png",
-        "name": "Giovanni",
-        "role": "The Designer"
+        "name": "Giovanni Inglese",
+        "role": "Designer"
+      },
+      {
+        "photo": "Giuseppe.png",
+        "name": "Giuseppe Fabrini",
+        "role": "Botanist and biologist"
       },
       {
         "photo": "Sabrina.png",
-        "name": "Sabrina",
-        "role": "The Designer"
+        "name": "Sabrina Lucibello",
+        "role": "Designer"
       }
     ]
   },
