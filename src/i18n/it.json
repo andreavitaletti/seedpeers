@@ -89,6 +89,11 @@
         "role": "Ingegnere"
       },
       {
+        "photo": "Elisa.png",
+        "name": "Elisa Pecci",
+        "role": "Designer"
+      },
+      {
         "photo": "Giovanni.png",
         "name": "Giovanni Inglese",
         "role": "Designer"
