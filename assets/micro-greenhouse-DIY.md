@@ -1,19 +1,35 @@
 ---
 title: "Build your SeedPeers micro greenhouse"
-difficulty: "Easy / Intermediate"   # TODO: confirm
-time: "~2 hours"                     # TODO: confirm
-cost: "~€__"                         # TODO: fill in
-author: "SeedPeers team"
+author: "Andrea Vitaletti"
+output: pdf_document
+geometry: margin=2cm
+colorlinks: true
+linkcolor: blue
+header-includes:
+  - \usepackage{float}
+  - \floatplacement{figure}{H}
+  - |
+    \makeatletter
+    \ifdefined\pandocbounded
+      \renewcommand*\pandocbounded[1]{%
+        \sbox\pandoc@box{#1}%
+        \Gscale@div\@tempa{0.38\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+        \Gscale@div\@tempb{0.85\linewidth}{\wd\pandoc@box}%
+        \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi%
+        \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+        \else\usebox{\pandoc@box}%
+        \fi%
+      }
+    \fi
+    \makeatother
 ---
 
 # Build your SeedPeers micro greenhouse
 
-A small greenhouse made from a recycled 2 L PET bottle. It has a grow light and an
+A micro-greenhouse made from a recycled 2 L PET bottle of Coca-Cola. It has a grow light and an
 ESP32 that you control from your smartphone.
 
-![The finished micro greenhouse](./7.jpg)
-
-> 🎬 **Video:** [Watch the build](./seedpeers_1.mp4)
+![The finished micro-greenhouse](./7.jpg)
 
 ---
 
@@ -21,18 +37,18 @@ ESP32 that you control from your smartphone.
 
 ### Materials
 
-| # | Item | Qty | Notes |
-|---|------|-----|-------|
-| 1 | Empty 2 L PET bottle with cap | 1 | Clear plastic, label removed |
-| 2 | Plywood board | 1 | About __ mm thick (TODO). You cut a disc from it the size of the bottle |
-| 3 | LED ring grow light | 1 | Outer diameter __ mm (TODO), __ V (TODO) |
-| 4 | ESP32 dev board (ESP32-WROOM-32) | 1 | Mounted on a perfboard |
-| 5 | Dual MOSFET driver module | 1 | Switches/dims the LED ring. TODO: model |
-| 6 | Perfboard + jumper wires | 1 | |
-| 7 | USB power supply + cable | 1 | 5 V, ≥ __ A (TODO) |
-| 8 | Small wood screws | 4–6 | To fix the board and the bottle top to the disc |
-| 9 | Hot-glue sticks | – | |
-| 10 | Small plant pot + soil + seedling | 1 | Must fit inside the bottle |
+| #   | Item                              | Qty | Notes                                                                                                                                    |
+| --- | --------------------------------- | --- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Empty 2 L PET bottle with cap     | 1   | Clear plastic, label removed                                                                                                             |
+| 2   | Plywood board                     | 1   | About 1cm thick. You cut a disc from it the size of the bottle                                                                           |
+| 3   | LED ring grow light               | 1   | Outer diameter __ mm (TODO), __ V (TODO) [A possible choice](https://www.amazon.it/dp/B0BVLWW1KY?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1) |
+| 4   | ESP32 dev board (ESP32-WROOM-32)  | 1   | Mounted on a perfboard                                                                                                                   |
+| 5   | Dual MOSFET driver module         | 1   | Switches/dims the LED ring. [A possible choice](https://www.amazon.it/dp/B0CF5TS3YL?ref=ppx_yo2ov_dt_b_fed_asin_title)                   |
+| 6   | Perfboard + jumper wires          | 1   |                                                                                                                                          |
+| 7   | USB power supply + cable          | 1   | 5 V, > __ A (TODO)                                                                                                                       |
+| 8   | Small wood screws                 | 4–6 | To fix the board and the bottle top to the disc                                                                                          |
+| 9   | Hot-glue sticks                   | –   |                                                                                                                                          |
+| 10  | Small plant pot + soil + seedling | 1   | Must fit inside the bottle                                                                                                               |
 
 ### Tools
 
@@ -43,8 +59,8 @@ ESP32 that you control from your smartphone.
 - Pencil, masking tape
 - Soldering iron *(optional, for the perfboard)*
 
-> ⚠️ **Safety:** wear eye protection when you use the jigsaw. Keep fingers away from
-> the blade and be careful with the cutter on curved plastic. Hot glue causes burns.
+!!! Danger
+    wear eye protection when you use the jigsaw. Keep fingers away from the blade and be careful with the cutter on curved plastic. Hot glue causes burns.
 
 ---
 
@@ -97,16 +113,61 @@ already a working passive greenhouse. The next steps add the light and the elect
 1. Screw the perfboard with the ESP32 and the MOSFET module onto the **top side** of the disc.
 2. Wire the parts as follows:
 
-   | From | To |
-   |------|----|
-   | ESP32 GPIO __ (TODO) | MOSFET module IN1 |
-   | ESP32 GND | MOSFET module GND |
-   | LED ring + / – | MOSFET module OUT1 |
-   | USB 5 V / GND | ESP32 VIN / GND and MOSFET module V+ |
+   | From                 | To                                   |
+   | -------------------- | ------------------------------------ |
+   | ESP32 GPIO __ (TODO) | MOSFET module IN1                    |
+   | ESP32 GND            | MOSFET module GND                    |
+   | LED ring + / –       | MOSFET module OUT1                   |
+   | USB 5 V / GND        | ESP32 VIN / GND and MOSFET module V+ |
 
 3. Fix the cables with a drop of hot glue (strain relief).
 
 <!-- TODO: add a wiring diagram, e.g. ./wiring.png -->
+![alt text](./wiring-diagram.png)
+
+```cpp
+const int PIN_Q1_SPECTRUM_1 = 19; // PWM Canale 1 (Rosso/Blu)
+const int PIN_Q2_SPECTRUM_2 = 18; // PWM Canale 1 (Rosso/Blu)
+const int PWM_FREQ = 5000;
+const int PWM_RESOLUTION = 8;
+
+void setLampState(int brightnessQ1, int brightnessQ2) {
+  // Con il Core v3.x usi direttamente il numero del PIN
+  ledcWrite(PIN_Q1_SPECTRUM_1, brightnessQ1);
+  ledcWrite(PIN_Q2_SPECTRUM_2, brightnessQ2);
+}
+
+void setup() {
+  Serial.begin(115200);
+
+  // Sintassi ESP32 Core v3.x: associa pin, frequenza e risoluzione in un solo passaggio
+  ledcAttach(PIN_Q1_SPECTRUM_1, PWM_FREQ, PWM_RESOLUTION);
+  ledcAttach(PIN_Q2_SPECTRUM_2, PWM_FREQ, PWM_RESOLUTION);
+  
+  setLampState(0,255);
+  Serial.println("ready");
+}
+
+void loop() {
+  Serial.println("ramping up");
+  for (int duty = 0; duty <= 255; duty += 5) {
+    setLampState(duty, 255-duty);
+    Serial.print("duty: ");
+    Serial.println(duty);
+    delay(20);
+  }
+
+  delay(1000);
+
+  Serial.println("ramping down");
+  for (int duty = 255; duty >= 0; duty -= 5) {
+    setLampState(duty, 255-duty);
+    Serial.print("duty: ");
+    Serial.println(duty);
+    delay(20);
+  }
+}
+```
 
 ---
 
@@ -155,19 +216,3 @@ When powered, the LED ring lights up the plant with the grow spectrum (pink/purp
 3. Use the controls to set the light intensity and TODO (other controls).
 
 ---
-
-## Troubleshooting
-
-| Problem | Possible cause | Fix |
-|---------|----------------|-----|
-| The LED ring doesn't turn on | Wiring / wrong GPIO | Check the step 5 wiring |
-| The app can't find the device | Firmware not uploaded / wrong token | Repeat step 8 |
-| Condensation on the walls | Too much humidity | Remove the cap to let air in |
-| TODO | | |
-
----
-
-## Next steps
-
-- TODO: add sensors (temperature, humidity, soil moisture)
-- TODO: share your data with the SeedPeers community
