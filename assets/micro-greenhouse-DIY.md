@@ -41,11 +41,11 @@ ESP32 that you control from your smartphone.
 | --- | --------------------------------- | --- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | 1   | Empty 2 L PET bottle with cap     | 1   | Clear plastic, label removed                                                                                                             |
 | 2   | Plywood board                     | 1   | About 1cm thick. You cut a disc from it the size of the bottle                                                                           |
-| 3   | LED ring grow light               | 1   | Outer diameter __ mm (TODO), __ V (TODO) [A possible choice](https://www.amazon.it/dp/B0BVLWW1KY?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1) |
+| 3   | LED ring grow light               | 1   | [A possible LED ring grow light](https://www.amazon.it/dp/B0BVLWW1KY?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1) |
 | 4   | ESP32 dev board (ESP32-WROOM-32)  | 1   | Mounted on a perfboard                                                                                                                   |
-| 5   | Dual MOSFET driver module         | 1   | Switches/dims the LED ring. [A possible choice](https://www.amazon.it/dp/B0CF5TS3YL?ref=ppx_yo2ov_dt_b_fed_asin_title)                   |
+| 5   | Dual MOSFET driver module         | 1   | Switches/dims the LED ring. [A possible Dual MOSFET driver module](https://www.amazon.it/dp/B0CF5TS3YL?ref=ppx_yo2ov_dt_b_fed_asin_title)                   |
 | 6   | Perfboard + jumper wires          | 1   |                                                                                                                                          |
-| 7   | USB power supply + cable          | 1   | 5 V, > __ A (TODO)                                                                                                                       |
+| 7   | USB power supply + cable          | 1   | 5 V, >  1.5A                                                                                                              |
 | 8   | Small wood screws                 | 4–6 | To fix the board and the bottle top to the disc                                                                                          |
 | 9   | Hot-glue sticks                   | –   |                                                                                                                                          |
 | 10  | Small plant pot + soil + seedling | 1   | Must fit inside the bottle                                                                                                               |
@@ -169,6 +169,7 @@ void loop() {
 }
 ```
 
+This code is available [here](https://wokwi.com/projects/477929549130673153)
 ---
 
 ## Step 6 – Close the lid
@@ -193,8 +194,8 @@ void loop() {
 ## Step 8 – Upload the firmware
 
 1. Install the Arduino IDE (or PlatformIO) and the ESP32 board support.
-2. Open the firmware: `TODO: link to repository / sketch`.
-3. Set your parameters (TODO: Wi-Fi / Bluetooth, RemoteXY token, …).
+2. Open the firmware: [https://github.com/andreavitaletti/PlatformIO/tree/main/Projects/seedpeers](https://github.com/andreavitaletti/PlatformIO/tree/main/Projects/seedpeers).
+3. Set your parameters (Wi-Fi / Bluetooth, RemoteXY token, …).
 4. Upload the sketch to the ESP32 over USB.
 
 ---
@@ -211,8 +212,8 @@ When powered, the LED ring lights up the plant with the grow spectrum (pink/purp
 
 ![Control from the RemoteXY app](./9.png)
 
-1. Install **RemoteXY** on your phone ([Android](TODO) / [iOS](TODO)).
-2. Connect to the **SeedPeers** device (TODO: connection method).
-3. Use the controls to set the light intensity and TODO (other controls).
+1. Install **RemoteXY** on your phone.
+2. Connect to the **SeedPeers** device.
+3. Use the controls to set the light intensityhttps://github.com/andreavitaletti/PlatformIO/tree/main/Projects/seedpeers.
 
 ---
