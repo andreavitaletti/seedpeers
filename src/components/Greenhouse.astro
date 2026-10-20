@@ -4,6 +4,8 @@ import type { Translations } from '../i18n'
 import LandingSection from './LandingSection.astro'
 import { Image } from 'astro:assets'
 import greenhouseImg from '../images/greenhouse.png'
+import serra01Img from '../images/serra01.jpg'
+import serra02Img from '../images/serra02.png'
 
 interface Props {
   t: Translations
@@ -15,12 +17,35 @@ const greenhouse = t.greenhouse as any
 
 <LandingSection id="greenhouse" class="section">
   <div class="ac-greenhouse__layout">
-    <div class="ac-greenhouse__image-wrap animate-fade-in-up">
-      <Image
-        src={greenhouseImg}
-        alt={greenhouse.title}
-        class="ac-greenhouse__image"
-      />
+    <div class="ac-greenhouse__media animate-fade-in-up">
+      <div class="ac-greenhouse__image-wrap">
+        <Image
+          src={greenhouseImg}
+          alt={greenhouse.title}
+          class="ac-greenhouse__image"
+        />
+      </div>
+
+      <div class="ac-greenhouse__gallery">
+        <div class="ac-greenhouse__image-wrap">
+          <Image
+            src={serra01Img}
+            alt={greenhouse.serra01Alt}
+            class="ac-greenhouse__image ac-greenhouse__image--photo"
+            widths={[400, 800]}
+            sizes="(max-width: 56.25rem) 50vw, 25vw"
+          />
+        </div>
+        <div class="ac-greenhouse__image-wrap">
+          <Image
+            src={serra02Img}
+            alt={greenhouse.serra02Alt}
+            class="ac-greenhouse__image ac-greenhouse__image--photo"
+            widths={[400, 800]}
+            sizes="(max-width: 56.25rem) 50vw, 25vw"
+          />
+        </div>
+      </div>
     </div>
 
     <div class="ac-greenhouse__content animate-fade-in-up delay-200">
@@ -39,6 +64,22 @@ const greenhouse = t.greenhouse as any
     grid-template-columns: 1.2fr 1fr;
     gap: var(--ac-spacing-16);
     align-items: center;
+  }
+
+  .ac-greenhouse__media {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ac-spacing-6);
+  }
+
+  .ac-greenhouse__gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--ac-spacing-6);
+  }
+
+  .ac-greenhouse__image--photo {
+    aspect-ratio: 3 / 4;
   }
 
   .ac-greenhouse__image-wrap {
@@ -99,7 +140,7 @@ const greenhouse = t.greenhouse as any
       gap: var(--ac-spacing-12);
     }
 
-    .ac-greenhouse__image-wrap {
+    .ac-greenhouse__media {
       max-width: 32rem;
       margin: 0 auto;
     }

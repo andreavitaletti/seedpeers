@@ -23,7 +23,9 @@
   },
   "greenhouse": {
     "title": "Dove la Funzione Incontra la Forma",
-    "description": "Le micro-serre costituiscono la spina dorsale della rete SeedPeers. Progettate per creare le condizioni ideali per la conservazione e la crescita dei semi, uniscono funzionalità avanzate a un design raffinato e minimalista. Più che semplici dispositivi di coltivazione, sono vetrine viventi di biodiversità, capaci di portare la natura e la bellezza nei nostri spazi quotidiani. Inizialmente avevamo immaginato una serra autonoma e ad alta tecnologia, ma l'obiettivo del progetto non è sollevarci dalle cure della pianta, piuttosto è renderci maggiormente consapevoli. Per questo la serra replica, per quanto possibile, le condizioni ambientali naturali della pianta in termini di luce e temperatura, lasciando a noi l'onere e il piacere di prendercene cura, annaffiandola quando necessario."
+    "description": "Le micro-serre costituiscono la spina dorsale della rete SeedPeers. Progettate per creare le condizioni ideali per la conservazione e la crescita dei semi, uniscono funzionalità avanzate a un design raffinato e minimalista. Più che semplici dispositivi di coltivazione, sono vetrine viventi di biodiversità, capaci di portare la natura e la bellezza nei nostri spazi quotidiani. Inizialmente avevamo immaginato una serra autonoma e ad alta tecnologia, ma l'obiettivo del progetto non è sollevarci dalle cure della pianta, piuttosto è renderci maggiormente consapevoli. Per questo la serra replica, per quanto possibile, le condizioni ambientali naturali della pianta in termini di luce e temperatura, lasciando a noi l'onere e il piacere di prendercene cura, annaffiandola quando necessario.",
+    "serra01Alt": "Prototipo della micro-serra stampato in 3D, con luce di crescita accesa",
+    "serra02Alt": "Micro-serra realizzata con una bottiglia di plastica riciclata, con luce di crescita accesa"
   },
   "howItWorks": {
     "title": "Come funziona",
